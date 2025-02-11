@@ -1,0 +1,54 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1ncq1717211o"]
+
+[ext_resource type="Script" path="res://components/graph nodes/scalar values/string.gd" id="1_nna1i"]
+
+[node name="String" type="GraphNode"]
+title = "String"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+script = ExtResource("1_nna1i")
+
+[node name="SlotContainer0" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="SlotContainer0"]
+layout_mode = 2
+text = "Value:"
+
+[node name="StringEdit" type="LineEdit" parent="SlotContainer0"]
+custom_minimum_size = Vector2(100, 35)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+
+[node name="KeyContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 35
+
+[node name="Label" type="Label" parent="KeyContainer"]
+layout_mode = 2
+text = "Key:"
+
+[node name="KeyEdit" type="LineEdit" parent="KeyContainer"]
+custom_minimum_size = Vector2(100, 35)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+
+[connection signal="text_changed" from="SlotContainer0/StringEdit" to="." method="value_changed"]
+[connection signal="text_changed" from="KeyContainer/KeyEdit" to="." method="key_changed"]

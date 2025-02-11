@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://djdg83jf52aj8"]
+
+[ext_resource type="Script" path="res://components/graph nodes/pipeline_node.gd" id="1_dtbby"]
+
+[node name="ToolInvoker" type="GraphNode"]
+script = ExtResource("1_dtbby")

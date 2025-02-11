@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bk6vpgnfid5jf"]
+
+[ext_resource type="Script" path="res://components/graph nodes/embedders/ollama_document_embedder.gd" id="1_46qkf"]
+[ext_resource type="PackedScene" uid="uid://d35rc4bka8ruw" path="res://components/graph nodes/embedders/ollama_document_embedder_init.tscn" id="2_52yqn"]
+[ext_resource type="PackedScene" uid="uid://063ylokmsvef" path="res://components/graph nodes/embedders/ollama_document_embedder_run.tscn" id="3_ungbm"]
+
+[node name="OllamaDocumentEmbedder" type="GraphFrame"]
+offset_right = 9.0
+offset_bottom = 63.0
+title = "Ollama Document Embedder"
+script = ExtResource("1_46qkf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="OllamaDocumentEmbedderInit" parent="VBoxContainer" instance=ExtResource("2_52yqn")]
+layout_mode = 2
+
+[node name="OllamaDocumentEmbedderRun" parent="VBoxContainer" instance=ExtResource("3_ungbm")]
+layout_mode = 2

@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://14bes4wop7dc"]
+
+[ext_resource type="Script" path="res://components/graph nodes/api/data_model.gd" id="1_1ac8o"]
+
+[node name="DataModel" type="GraphNode"]
+title = "Data Model"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+script = ExtResource("1_1ac8o")
+
+[node name="NameRow" type="HBoxContainer" parent="."]
+layout_direction = 2
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="NameRow"]
+layout_mode = 2
+text = "Name: "
+
+[node name="NameEdit" type="LineEdit" parent="NameRow"]
+layout_mode = 2
+size_flags_horizontal = 3

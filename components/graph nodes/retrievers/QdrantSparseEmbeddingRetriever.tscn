@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmd4r4febvp0u"]
+
+[ext_resource type="Script" path="res://components/graph nodes/pipeline_node.gd" id="1_vow4x"]
+
+[node name="QdrantSparseEmbeddingRetriever" type="GraphNode"]
+script = ExtResource("1_vow4x")

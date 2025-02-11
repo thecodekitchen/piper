@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6tfka7p8fxag"]
+
+[ext_resource type="Script" path="res://components/graph nodes/embedders/ollama_text_embedder.gd" id="1_haela"]
+[ext_resource type="PackedScene" uid="uid://bm5437lpbh61s" path="res://components/graph nodes/embedders/ollama_text_embedder_init.tscn" id="2_pn4kj"]
+[ext_resource type="PackedScene" uid="uid://cbwo27sd12mtu" path="res://components/graph nodes/embedders/ollama_text_embedder_run.tscn" id="3_1286t"]
+
+[node name="OllamaTextEmbedder" type="GraphFrame"]
+offset_right = 9.0
+offset_bottom = 63.0
+title = "Ollama Text Embedder"
+script = ExtResource("1_haela")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="OllamaTextEmbedderInit" parent="VBoxContainer" instance=ExtResource("2_pn4kj")]
+layout_mode = 2
+
+[node name="OllamaTextEmbedderRun" parent="VBoxContainer" instance=ExtResource("3_1286t")]
+layout_mode = 2

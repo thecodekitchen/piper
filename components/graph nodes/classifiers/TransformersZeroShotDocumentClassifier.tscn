@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cww0mij30su7p"]
+
+[ext_resource type="Script" path="res://components/graph nodes/pipeline_node.gd" id="1_v4gun"]
+
+[node name="TransformersZeroShotDocumentClassifier" type="GraphNode"]
+script = ExtResource("1_v4gun")

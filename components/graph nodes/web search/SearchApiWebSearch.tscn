@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dob55ta8g76fe"]
+
+[ext_resource type="Script" path="res://components/graph nodes/pipeline_node.gd" id="1_sfpwp"]
+
+[node name="SearchApiWebSearch" type="GraphNode"]
+script = ExtResource("1_sfpwp")

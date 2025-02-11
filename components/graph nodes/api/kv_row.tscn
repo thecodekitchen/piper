@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://p1e251kx7fu3"]
+
+[ext_resource type="Script" path="res://components/graph nodes/api/kv_row.gd" id="1_nnunq"]
+
+[node name="KVRow" type="HBoxContainer"]
+theme_override_constants/separation = 15
+script = ExtResource("1_nnunq")
+
+[node name="KeyEditor" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 23
+
+[node name="KeyLabel" type="Label" parent="KeyEditor"]
+layout_mode = 2
+text = "key: "
+
+[node name="KeyEdit" type="LineEdit" parent="KeyEditor"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="TypePicker" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TypeLabel" type="Label" parent="TypePicker"]
+layout_mode = 2
+text = "type: "
+
+[node name="TypeOptionButton" type="OptionButton" parent="TypePicker"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="CustomCheck" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="CustomLabel" type="Label" parent="CustomCheck"]
+layout_mode = 2
+text = "custom?"
+
+[node name="CustomCheckButton" type="CheckButton" parent="CustomCheck"]
+layout_mode = 2
+
+[node name="AddButton" type="Button" parent="."]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "+"

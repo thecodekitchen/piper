@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://8qxjwhc3xst4"]
+
+[ext_resource type="Script" path="res://components/graph nodes/complex values/string_list.gd" id="1_74nqb"]
+
+[node name="StringList" type="GraphNode"]
+title = "Plain String List"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+script = ExtResource("1_74nqb")
+
+[node name="SlotContainer0" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SlotContainer0"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="SlotContainer0/HBoxContainer"]
+layout_mode = 2
+text = "Key: "
+
+[node name="LineEdit" type="LineEdit" parent="SlotContainer0/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SlotContainer0"]
+layout_mode = 2
+text = "Output"
+
+[connection signal="text_changed" from="SlotContainer0/HBoxContainer/LineEdit" to="." method="key_changed"]

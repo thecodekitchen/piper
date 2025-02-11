@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://su4v1t7op2u0"]
+
+[ext_resource type="Script" path="res://components/graph nodes/pipeline_node.gd" id="1_06idd"]
+
+[node name="LlamaCppGenerator" type="GraphNode"]
+script = ExtResource("1_06idd")

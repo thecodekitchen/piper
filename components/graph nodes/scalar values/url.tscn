@@ -1,0 +1,52 @@
+[gd_scene load_steps=2 format=3 uid="uid://s4u8oke1cr8"]
+
+[ext_resource type="Script" path="res://components/graph nodes/scalar values/url.gd" id="1_vb3lt"]
+
+[node name="Url" type="GraphNode"]
+title = "URL"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+script = ExtResource("1_vb3lt")
+
+[node name="SlotContainer0" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Label" type="Label" parent="SlotContainer0"]
+layout_mode = 2
+text = "Val:"
+
+[node name="URLEdit" type="LineEdit" parent="SlotContainer0"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="URL" type="Label" parent="SlotContainer0"]
+layout_mode = 2
+text = "output"
+
+[node name="KeyContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="KeyContainer"]
+layout_mode = 2
+text = "Key: "
+
+[node name="KeyEdit" type="LineEdit" parent="KeyContainer"]
+layout_mode = 2
+size_flags_horizontal = 3

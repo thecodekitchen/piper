@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dywtsqfa3gy4v"]
+
+[ext_resource type="Script" path="res://components/graph nodes/pipeline_node.gd" id="1_lllaq"]
+
+[node name="WeaviateEmbeddingRetriever" type="GraphNode"]
+script = ExtResource("1_lllaq")

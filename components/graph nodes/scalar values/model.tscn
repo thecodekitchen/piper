@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://d05hjr6pv4bh7"]
+
+[ext_resource type="PackedScene" uid="uid://cdblubcgy14b7" path="res://components/model_picker.tscn" id="1_1hswa"]
+[ext_resource type="Script" path="res://components/graph nodes/scalar values/model.gd" id="1_enunt"]
+
+[node name="Model" type="GraphNode"]
+title = "Model"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+script = ExtResource("1_enunt")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="ModelPicker" parent="HBoxContainer" instance=ExtResource("1_1hswa")]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="Model" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Model"

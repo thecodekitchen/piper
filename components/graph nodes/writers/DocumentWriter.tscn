@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4hio4j6yw621"]
+
+[ext_resource type="Script" path="res://components/graph nodes/writers/document_writer.gd" id="1_nprtu"]
+[ext_resource type="PackedScene" uid="uid://dlwjblj12p14x" path="res://components/graph nodes/writers/document_writer_init.tscn" id="2_1gur2"]
+[ext_resource type="PackedScene" uid="uid://cr01hss3vn5ur" path="res://components/graph nodes/writers/document_writer_run.tscn" id="3_vlx0c"]
+
+[node name="DocumentWriter" type="GraphFrame"]
+custom_minimum_size = Vector2(200, 0)
+offset_right = 200.0
+offset_bottom = 63.0
+title = "Document Writer"
+script = ExtResource("1_nprtu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="DocumentWriterInit" parent="VBoxContainer" instance=ExtResource("2_1gur2")]
+layout_mode = 2
+
+[node name="DocumentWriterRun" parent="VBoxContainer" instance=ExtResource("3_vlx0c")]
+layout_mode = 2

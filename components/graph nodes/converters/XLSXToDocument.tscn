@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://bidbp6lr3iett"]
+
+[ext_resource type="Script" path="res://components/graph nodes/converters/xlsx_to_document.gd" id="1_j6072"]
+
+[node name="XlsxToDocument" type="GraphNode"]
+title = "Convert XLSX To Document"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+script = ExtResource("1_j6072")
+
+[node name="SlotContainer0" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Label" type="Label" parent="SlotContainer0"]
+layout_mode = 2
+text = "sources"
+
+[node name="Label2" type="Label" parent="SlotContainer0"]
+layout_mode = 2
+text = "converted"

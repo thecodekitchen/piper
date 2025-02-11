@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://7mmtn1wo6ogf"]
+
+[ext_resource type="Script" path="res://components/graph nodes/pipeline_node.gd" id="1_a35cx"]
+
+[node name="OpenAiDocumentEmbedder" type="GraphNode"]
+script = ExtResource("1_a35cx")

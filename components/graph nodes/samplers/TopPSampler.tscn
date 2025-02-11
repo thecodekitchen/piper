@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dk6v0xccga5er"]
+
+[ext_resource type="Script" path="res://components/graph nodes/pipeline_node.gd" id="1_du0uu"]
+
+[node name="TopPSampler" type="GraphNode"]
+script = ExtResource("1_du0uu")

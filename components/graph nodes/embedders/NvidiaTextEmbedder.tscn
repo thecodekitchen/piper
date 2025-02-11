@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2ri0coi0hsv0"]
+
+[ext_resource type="Script" path="res://components/graph nodes/pipeline_node.gd" id="1_gytp1"]
+
+[node name="NvidiaTextEmbedder" type="GraphNode"]
+script = ExtResource("1_gytp1")

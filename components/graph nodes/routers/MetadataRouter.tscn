@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bp0b66vyonc55"]
+
+[ext_resource type="Script" path="res://components/graph nodes/pipeline_node.gd" id="1_gviwf"]
+
+[node name="MetadataRouter" type="GraphNode"]
+script = ExtResource("1_gviwf")

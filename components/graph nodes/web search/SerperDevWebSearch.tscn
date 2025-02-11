@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://k8hy8oribisy"]
+
+[ext_resource type="Script" path="res://components/graph nodes/pipeline_node.gd" id="1_ie604"]
+
+[node name="SerperDevWebSearch" type="GraphNode"]
+script = ExtResource("1_ie604")

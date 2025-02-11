@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7o3qqs4n7h0k"]
+
+[ext_resource type="Script" path="res://components/graph nodes/pipeline_node.gd" id="1_obsuo"]
+
+[node name="UnstructuredFileConverter" type="GraphNode"]
+script = ExtResource("1_obsuo")

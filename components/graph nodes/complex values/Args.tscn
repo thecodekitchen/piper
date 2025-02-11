@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyumd7mut4dd"]
+
+[ext_resource type="Script" path="res://components/graph nodes/complex values/dictionary.gd" id="1_l3v7c"]
+
+[node name="Args" type="GraphNode"]
+title = "Args"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+script = ExtResource("1_l3v7c")
+
+[node name="SlotContainer0" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Type Map" type="Label" parent="SlotContainer0"]
+layout_mode = 2
+text = "Type Map"
+
+[node name="ResetButton" type="Button" parent="SlotContainer0"]
+layout_mode = 2
+text = "Reset "
+
+[node name="Value" type="Label" parent="SlotContainer0"]
+layout_mode = 2
+text = "Value"

@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://bx3un1a1to5oo"]
+
+[ext_resource type="Script" path="res://scripts/main menu/edit_menu_button.gd" id="2_11g1i"]
+[ext_resource type="Script" path="res://scripts/main menu/file_menu_button.gd" id="2_yrmxu"]
+
+[sub_resource type="GDScript" id="GDScript_w0yy7"]
+script/source = "extends MenuBar
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass# Replace with function body.
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="MenuBar" type="MenuBar"]
+custom_minimum_size = Vector2(0, 40)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 40.0
+grow_horizontal = 2
+script = SubResource("GDScript_w0yy7")
+
+[node name="FileMenuButton" type="MenuButton" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -15.5
+offset_right = 35.0
+offset_bottom = 15.5
+grow_vertical = 2
+text = "File"
+switch_on_hover = true
+item_count = 2
+popup/item_0/text = "Save Conversation"
+popup/item_1/text = "Load Conversation"
+popup/item_1/id = 1
+script = ExtResource("2_yrmxu")
+
+[node name="EditMenuButton" type="MenuButton" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -4.0
+offset_right = 58.0
+offset_bottom = 4.0
+grow_vertical = 2
+text = "Edit"
+switch_on_hover = true
+item_count = 2
+popup/item_0/text = "Pipeline Editor"
+popup/item_1/text = "Chat"
+popup/item_1/id = 1
+script = ExtResource("2_11g1i")

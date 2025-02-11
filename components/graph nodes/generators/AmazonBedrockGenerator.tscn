@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyu6rmc0wjh2a"]
+
+[ext_resource type="Script" path="res://components/graph nodes/pipeline_node.gd" id="1_men7m"]
+
+[node name="AmazonBedrockGenerator" type="GraphNode"]
+script = ExtResource("1_men7m")

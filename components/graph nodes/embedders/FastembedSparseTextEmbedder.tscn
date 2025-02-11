@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ces0wmefgxkir"]
+
+[ext_resource type="Script" path="res://components/graph nodes/pipeline_node.gd" id="1_e84uj"]
+
+[node name="FastembedSparseTextEmbedder" type="GraphNode"]
+script = ExtResource("1_e84uj")

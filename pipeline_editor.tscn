@@ -1,0 +1,563 @@
+[gd_scene load_steps=32 format=3 uid="uid://bslafliymlx6i"]
+
+[ext_resource type="Script" path="res://pipeline_editor.gd" id="1_r4cx3"]
+[ext_resource type="Script" path="res://scripts/signalling/pipeline_graph.gd" id="2_nlb4m"]
+[ext_resource type="Script" path="res://scripts/pipeline editor menus/node_menu.gd" id="3_h7f13"]
+[ext_resource type="Script" path="res://scripts/pipeline editor menus/doc_store_menu.gd" id="4_ouk7u"]
+[ext_resource type="Script" path="res://api_menu.gd" id="4_p6pen"]
+[ext_resource type="Script" path="res://scripts/pipeline editor menus/audio_menu.gd" id="5_cy0pi"]
+[ext_resource type="Script" path="res://scripts/pipeline editor menus/builder_menu.gd" id="6_rhmum"]
+[ext_resource type="Script" path="res://scripts/pipeline editor menus/caching_menu.gd" id="7_847cf"]
+[ext_resource type="Script" path="res://scripts/pipeline editor menus/classifier_menu.gd" id="8_sgdke"]
+[ext_resource type="Script" path="res://scripts/pipeline editor menus/connector_menu.gd" id="9_nbhun"]
+[ext_resource type="Script" path="res://scripts/pipeline editor menus/converter_menu.gd" id="10_jw5y1"]
+[ext_resource type="Script" path="res://scripts/pipeline editor menus/embedder_menu.gd" id="11_slhkd"]
+[ext_resource type="Script" path="res://scripts/pipeline editor menus/evaluator_menu.gd" id="12_0r71d"]
+[ext_resource type="Script" path="res://scripts/pipeline editor menus/extractor_menu.gd" id="13_0eaj4"]
+[ext_resource type="Script" path="res://scripts/pipeline editor menus/fetcher_menu.gd" id="14_p4y4n"]
+[ext_resource type="Script" path="res://scripts/pipeline editor menus/generator_menu.gd" id="15_akgbq"]
+[ext_resource type="Script" path="res://scripts/pipeline editor menus/joiner_menu.gd" id="16_dvifm"]
+[ext_resource type="Script" path="res://scripts/pipeline editor menus/preprocessor_menu.gd" id="17_arb2g"]
+[ext_resource type="Script" path="res://scripts/pipeline editor menus/ranker_menu.gd" id="18_dxv01"]
+[ext_resource type="Script" path="res://scripts/pipeline editor menus/reader_menu.gd" id="19_o6p4f"]
+[ext_resource type="Script" path="res://scripts/pipeline editor menus/retriever_menu.gd" id="20_ikdej"]
+[ext_resource type="Script" path="res://scripts/pipeline editor menus/router_menu.gd" id="21_efcsf"]
+[ext_resource type="Script" path="res://scripts/pipeline editor menus/sampler_menu.gd" id="22_ycvgy"]
+[ext_resource type="Script" path="res://scripts/pipeline editor menus/tool_component_menu.gd" id="23_5od0r"]
+[ext_resource type="Script" path="res://scripts/pipeline editor menus/validator_menu.gd" id="24_ik0s7"]
+[ext_resource type="Script" path="res://scripts/pipeline editor menus/web_search_menu.gd" id="25_ghh43"]
+[ext_resource type="Script" path="res://scripts/pipeline editor menus/writer_menu.gd" id="26_1foqn"]
+[ext_resource type="Script" path="res://scripts/pipeline editor menus/scalar_values_menu.gd" id="27_an3wg"]
+[ext_resource type="Script" path="res://complex_values_menu.gd" id="28_ou5m5"]
+[ext_resource type="Script" path="res://save_dialog.gd" id="29_swhxb"]
+[ext_resource type="Script" path="res://load_dialog.gd" id="31_ji0ta"]
+
+[node name="PipelineEditor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r4cx3")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0823529, 0.215686, 0.121569, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuBar" type="MenuBar" parent="ColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/VBoxContainer/MenuBar"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="FileMenuButton" type="MenuButton" parent="ColorRect/VBoxContainer/MenuBar/HBoxContainer"]
+layout_mode = 2
+text = "File"
+item_count = 2
+popup/item_0/text = "Save Pipeline"
+popup/item_1/text = "Load Pipeline"
+popup/item_1/id = 1
+
+[node name="EditMenuButton" type="MenuButton" parent="ColorRect/VBoxContainer/MenuBar/HBoxContainer"]
+layout_mode = 2
+text = "Edit"
+item_count = 1
+popup/item_0/text = "Chat"
+
+[node name="GraphEdit" type="GraphEdit" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("2_nlb4m")
+
+[node name="NodeMenu" type="PopupMenu" parent="ColorRect"]
+size = Vector2i(250, 224)
+max_size = Vector2i(250, 300)
+script = ExtResource("3_h7f13")
+
+[node name="APIMenu" type="PopupMenu" parent="ColorRect/NodeMenu"]
+auto_translate_mode = 1
+item_count = 4
+item_0/text = "Param"
+item_1/text = "Response"
+item_1/id = 1
+item_2/text = "Route"
+item_2/id = 2
+item_3/text = "Data Model"
+item_3/id = 3
+script = ExtResource("4_p6pen")
+
+[node name="DocStoreMenu" type="PopupMenu" parent="ColorRect/NodeMenu"]
+item_count = 13
+item_0/text = "InMemoryDocumentStore"
+item_1/text = "AstraDocumentStore"
+item_1/id = 1
+item_2/text = "AzureAISearchDocumentStore"
+item_2/id = 2
+item_3/text = "ChromaDocumentStore"
+item_3/id = 3
+item_4/text = "ElasticsearchDocumentStore"
+item_4/id = 4
+item_5/text = "MilvusDocumentStore"
+item_5/id = 5
+item_6/text = "MongoDBAtlasDocumentStore"
+item_6/id = 6
+item_7/text = "Neo4jDocumentStore"
+item_7/id = 7
+item_8/text = "OpenSearchDocumentStore"
+item_8/id = 8
+item_9/text = "PgvectorDocumentStore"
+item_9/id = 9
+item_10/text = "PineconeDocumentStore"
+item_10/id = 10
+item_11/text = "QdrantDocumentStore"
+item_11/id = 11
+item_12/text = "WeaviateDocumentStore"
+item_12/id = 12
+script = ExtResource("4_ouk7u")
+
+[node name="AudioMenu" type="PopupMenu" parent="ColorRect/NodeMenu"]
+auto_translate_mode = 1
+item_count = 2
+item_0/text = "LocalWhisperTranscriber"
+item_1/text = "RemoteWhisperTranscriber"
+item_1/id = 1
+script = ExtResource("5_cy0pi")
+
+[node name="BuilderMenu" type="PopupMenu" parent="ColorRect/NodeMenu"]
+auto_translate_mode = 1
+item_count = 5
+item_0/text = "AnswerBuilder"
+item_1/text = "PromptBuilder"
+item_1/id = 1
+item_2/text = "ChatPromptBuilder"
+item_2/id = 2
+item_3/text = "DynamicPromptBuilder"
+item_3/id = 3
+item_4/text = "DynamicChatPromptBuilder"
+item_4/id = 4
+script = ExtResource("6_rhmum")
+
+[node name="CachingMenu" type="PopupMenu" parent="ColorRect/NodeMenu"]
+auto_translate_mode = 1
+item_count = 1
+item_0/text = "CacheChecker"
+script = ExtResource("7_847cf")
+
+[node name="ClassifierMenu" type="PopupMenu" parent="ColorRect/NodeMenu"]
+auto_translate_mode = 1
+item_count = 2
+item_0/text = "DocumentLanguageClassifier"
+item_1/text = "TransformersZeroShotDocumentClassifier"
+item_1/id = 1
+script = ExtResource("8_sgdke")
+
+[node name="ConnectorMenu" type="PopupMenu" parent="ColorRect/NodeMenu"]
+auto_translate_mode = 1
+item_count = 3
+item_0/text = "JinaReaderConnector"
+item_1/text = "LangfuseConnector"
+item_1/id = 1
+item_2/text = "OpenAPIServiceConnector"
+item_2/id = 2
+script = ExtResource("9_nbhun")
+
+[node name="ConverterMenu" type="PopupMenu" parent="ColorRect/NodeMenu"]
+auto_translate_mode = 1
+item_count = 15
+item_0/text = "AzureOCRDocumentConverter"
+item_1/text = "CSVToDocument"
+item_1/id = 1
+item_2/text = "DOCXToDocument"
+item_2/id = 2
+item_3/text = "HTMLToDocument"
+item_3/id = 3
+item_4/text = "JSONConverter"
+item_4/id = 4
+item_5/text = "MarkdownToDocument"
+item_5/id = 5
+item_6/text = "OpenAPIServiceToFunctions"
+item_6/id = 6
+item_7/text = "OutputAdapter"
+item_7/id = 7
+item_8/text = "PDFMinerToDocument"
+item_8/id = 8
+item_9/text = "PPTXToDocument"
+item_9/id = 9
+item_10/text = "PyPDFToDocument"
+item_10/id = 10
+item_11/text = "TextFileToDocument"
+item_11/id = 12
+item_12/text = "TikaDocumentConverter"
+item_12/id = 11
+item_13/text = "UnstructuredFileConverter"
+item_13/id = 13
+item_14/text = "XLSXToDocument"
+item_14/id = 14
+script = ExtResource("10_jw5y1")
+
+[node name="EmbedderMenu" type="PopupMenu" parent="ColorRect/NodeMenu"]
+auto_translate_mode = 1
+item_count = 26
+item_0/text = "AmazonBedrockDocumentEmbedder"
+item_1/text = "AmazonBedrockTextEmbedder"
+item_1/id = 1
+item_2/text = "AzureOpenAIDocumentEmbedder"
+item_2/id = 2
+item_3/text = "AzureOpenAITextEmbedder"
+item_3/id = 3
+item_4/text = "CohereDocumentEmbedder"
+item_4/id = 4
+item_5/text = "CohereTextEmbedder"
+item_5/id = 5
+item_6/text = "FastembedDocumentEmbedder"
+item_6/id = 6
+item_7/text = "FastembedSparseDocumentEmbedder"
+item_7/id = 7
+item_8/text = "FastembedSparseTextEmbedder"
+item_8/id = 8
+item_9/text = "FastembedTextEmbedder"
+item_9/id = 9
+item_10/text = "HuggingFaceAPIDocumentEmbedder"
+item_10/id = 10
+item_11/text = "HuggingFaceAPITextEmbedder"
+item_11/id = 11
+item_12/text = "JinaDocumentEmbedder"
+item_12/id = 12
+item_13/text = "JinaTextEmbedder"
+item_13/id = 13
+item_14/text = "MistralDocumentEmbedder"
+item_14/id = 14
+item_15/text = "MistralTextEmbedder"
+item_15/id = 15
+item_16/text = "NvidiaDocumentEmbedder"
+item_16/id = 16
+item_17/text = "NvidiaTextEmbedder"
+item_17/id = 17
+item_18/text = "OllamaDocumentEmbedder"
+item_18/id = 18
+item_19/text = "OllamaTextEmbedder"
+item_19/id = 19
+item_20/text = "OpenAIDocumentEmbedder"
+item_20/id = 20
+item_21/text = "OpenAITextEmbedder"
+item_21/id = 21
+item_22/text = "OptimumDocumentEmbedder"
+item_22/id = 22
+item_23/text = "OptimumTextEmbedder"
+item_23/id = 23
+item_24/text = "SentenceTransformersDocumentEmbedder"
+item_24/id = 24
+item_25/text = "SentenceTransformersTextEmbedder"
+item_25/id = 25
+script = ExtResource("11_slhkd")
+
+[node name="EvaluatorMenu" type="PopupMenu" parent="ColorRect/NodeMenu"]
+auto_translate_mode = 1
+item_count = 11
+item_0/text = "AnswerExactMatchEvaluator"
+item_1/text = "ContextRelevanceEvaluator"
+item_1/id = 1
+item_2/text = "DeepEvalEvaluator"
+item_2/id = 2
+item_3/text = "DocumentMAPEvaluator"
+item_3/id = 3
+item_4/text = "DocumentMRREvaluator"
+item_4/id = 4
+item_5/text = "DocumentNDCGEvaluator"
+item_5/id = 5
+item_6/text = "DocumentRecallEvaluator"
+item_6/id = 6
+item_7/text = "FaithfulnessEvaluator"
+item_7/id = 7
+item_8/text = "LLMEvaluator"
+item_8/id = 8
+item_9/text = "RagasEvaluator"
+item_9/id = 9
+item_10/text = "SASEvaluator"
+item_10/id = 10
+script = ExtResource("12_0r71d")
+
+[node name="ExtractorMenu" type="PopupMenu" parent="ColorRect/NodeMenu"]
+auto_translate_mode = 1
+item_count = 1
+item_0/text = "NamedEntityExtractor"
+script = ExtResource("13_0eaj4")
+
+[node name="FetcherMenu" type="PopupMenu" parent="ColorRect/NodeMenu"]
+auto_translate_mode = 1
+item_count = 1
+item_0/text = "LinkContentFetcher"
+script = ExtResource("14_p4y4n")
+
+[node name="GeneratorMenu" type="PopupMenu" parent="ColorRect/NodeMenu"]
+auto_translate_mode = 1
+item_count = 31
+item_0/text = "AmazonBedrockChatGenerator"
+item_1/text = "AmazonBedrockGenerator"
+item_1/id = 1
+item_2/text = "AnthropicChatGenerator"
+item_2/id = 2
+item_3/text = "AnthropicVertexChatGenerator"
+item_3/id = 3
+item_4/text = "AnthropicGenerator"
+item_4/id = 4
+item_5/text = "AzureOpenAIChatGenerator"
+item_5/id = 5
+item_6/text = "AzureOpenAIGenerator"
+item_6/id = 6
+item_7/text = "CohereChatGenerator"
+item_7/id = 7
+item_8/text = "CohereGenerator"
+item_8/id = 8
+item_9/text = "GoogleAIGeminiChatGenerator"
+item_9/id = 9
+item_10/text = "GoogleAIGeminiGenerator"
+item_10/id = 10
+item_11/text = "HuggingFaceAPIChatGenerator"
+item_11/id = 11
+item_12/text = "HuggingFaceAPIGenerator"
+item_12/id = 12
+item_13/text = "HuggingFaceLocalChatGenerator"
+item_13/id = 13
+item_14/text = "HuggingFaceLocalGenerator"
+item_14/id = 14
+item_15/text = "LlamaCppChatGenerator"
+item_15/id = 15
+item_16/text = "LlamaCppGenerator"
+item_16/id = 16
+item_17/text = "MistralChatGenerator"
+item_17/id = 17
+item_18/text = "NvidiaGenerator"
+item_18/id = 18
+item_19/text = "OllamaChatGenerator"
+item_19/id = 19
+item_20/text = "OllamaGenerator"
+item_20/id = 20
+item_21/text = "OpenAIChatGenerator"
+item_21/id = 21
+item_22/text = "OpenAIGenerator"
+item_22/id = 22
+item_23/text = "SagemakerGenerator"
+item_23/id = 23
+item_24/text = "VertexAICodeGenerator"
+item_24/id = 24
+item_25/text = "VertexAIGeminiChatGenerator"
+item_25/id = 25
+item_26/text = "VertexAIGeminiGenerator"
+item_26/id = 26
+item_27/text = "VertexAIImageCaptioner"
+item_27/id = 27
+item_28/text = "VertexAIImageGenerator"
+item_28/id = 28
+item_29/text = "VertexAIImageQA"
+item_29/id = 29
+item_30/text = "VertexAITextGenerator"
+item_30/id = 30
+script = ExtResource("15_akgbq")
+
+[node name="JoinerMenu" type="PopupMenu" parent="ColorRect/NodeMenu"]
+auto_translate_mode = 1
+item_count = 4
+item_0/text = "AnswerJoiner"
+item_1/text = "BranchJoiner"
+item_1/id = 1
+item_2/text = "DocumentJoiner"
+item_2/id = 2
+item_3/text = "StringJoiner"
+item_3/id = 3
+script = ExtResource("16_dvifm")
+
+[node name="PreprocessorMenu" type="PopupMenu" parent="ColorRect/NodeMenu"]
+auto_translate_mode = 1
+item_count = 4
+item_0/text = "DocumentCleaner"
+item_1/text = "DocumentSplitter"
+item_1/id = 1
+item_2/text = "RecursiveSplitter"
+item_2/id = 2
+item_3/text = "TextCleaner"
+item_3/id = 3
+script = ExtResource("17_arb2g")
+
+[node name="RankerMenu" type="PopupMenu" parent="ColorRect/NodeMenu"]
+auto_translate_mode = 1
+size = Vector2i(319, 100)
+item_count = 9
+item_0/text = "CohereRanker"
+item_1/text = "FastembedRanker"
+item_1/id = 1
+item_2/text = "JinaRanker"
+item_2/id = 2
+item_3/text = "LostInTheMiddleRanker"
+item_3/id = 3
+item_4/text = "MetaFieldRanker"
+item_4/id = 4
+item_5/text = "MetaFieldGroupingRanker"
+item_5/id = 5
+item_6/text = "NvidiaRanker"
+item_6/id = 6
+item_7/text = "TransformersSimilarityRanker"
+item_7/id = 7
+item_8/text = "SentenceTransformersDiversityRanker"
+item_8/id = 8
+script = ExtResource("18_dxv01")
+
+[node name="ReaderMenu" type="PopupMenu" parent="ColorRect/NodeMenu"]
+auto_translate_mode = 1
+item_count = 1
+item_0/text = "ExtractiveReader"
+script = ExtResource("19_o6p4f")
+
+[node name="RetrieverMenu" type="PopupMenu" parent="ColorRect/NodeMenu"]
+auto_translate_mode = 1
+item_count = 21
+item_0/text = "AstraEmbeddingRetriever"
+item_1/text = "ChromaEmbeddingRetriever"
+item_1/id = 1
+item_2/text = "ChromaQueryTextRetriever"
+item_2/id = 2
+item_3/text = "ElasticsearchBM25Retriever"
+item_3/id = 3
+item_4/text = "ElasticsearchEmbeddingRetriever"
+item_4/id = 4
+item_5/text = "FilterRetriever"
+item_5/id = 5
+item_6/text = "InMemoryBM25Retriever"
+item_6/id = 6
+item_7/text = "InMemoryEmbeddingRetriever"
+item_7/id = 7
+item_8/text = "MongoDBAtlasEmbeddingRetriever"
+item_8/id = 8
+item_9/text = "OpenSearchBM25Retriever"
+item_9/id = 9
+item_10/text = "OpenSearchEmbeddingRetriever"
+item_10/id = 10
+item_11/text = "PgvectorEmbeddingRetriever"
+item_11/id = 11
+item_12/text = "PgvectorKeywordRetriever"
+item_12/id = 12
+item_13/text = "PineconeEmbeddingRetriever"
+item_13/id = 13
+item_14/text = "QdrantEmbeddingRetriever"
+item_14/id = 14
+item_15/text = "QdrantHybridRetriever"
+item_15/id = 15
+item_16/text = "QdrantSparseEmbeddingRetriever"
+item_16/id = 16
+item_17/text = "SentenceWindowRetriever"
+item_17/id = 17
+item_18/text = "SnowflakeTableRetriever"
+item_18/id = 18
+item_19/text = "WeaviateBM25Retriever"
+item_19/id = 19
+item_20/text = "WeaviateEmbeddingRetriever"
+item_20/id = 20
+script = ExtResource("20_ikdej")
+
+[node name="RouterMenu" type="PopupMenu" parent="ColorRect/NodeMenu"]
+auto_translate_mode = 1
+item_count = 6
+item_0/text = "ConditionalRouter"
+item_1/text = "FileTypeRouter"
+item_1/id = 1
+item_2/text = "MetadataRouter"
+item_2/id = 2
+item_3/text = "TextLanguageRouter"
+item_3/id = 3
+item_4/text = "TransformersTextRouter"
+item_4/id = 4
+item_5/text = "TransformersZeroShotTextRouter"
+item_5/id = 5
+script = ExtResource("21_efcsf")
+
+[node name="SamplerMenu" type="PopupMenu" parent="ColorRect/NodeMenu"]
+auto_translate_mode = 1
+item_count = 1
+item_0/text = "TopPSampler"
+script = ExtResource("22_ycvgy")
+
+[node name="ToolComponentMenu" type="PopupMenu" parent="ColorRect/NodeMenu"]
+auto_translate_mode = 1
+item_count = 1
+item_0/text = "ToolInvoker"
+script = ExtResource("23_5od0r")
+
+[node name="ValidatorMenu" type="PopupMenu" parent="ColorRect/NodeMenu"]
+auto_translate_mode = 1
+item_count = 1
+item_0/text = "JsonSchemaValidator"
+script = ExtResource("24_ik0s7")
+
+[node name="WebSearchMenu" type="PopupMenu" parent="ColorRect/NodeMenu"]
+auto_translate_mode = 1
+item_count = 2
+item_0/text = "SearchApiWebSearch"
+item_1/text = "SerperDevWebSearch"
+item_1/id = 1
+script = ExtResource("25_ghh43")
+
+[node name="WriterMenu" type="PopupMenu" parent="ColorRect/NodeMenu"]
+auto_translate_mode = 1
+item_count = 1
+item_0/text = "DocumentWriter"
+script = ExtResource("26_1foqn")
+
+[node name="ScalarValuesMenu" type="PopupMenu" parent="ColorRect/NodeMenu"]
+item_count = 6
+item_0/text = "API Key"
+item_1/text = "Model"
+item_1/id = 1
+item_2/text = "Boolean"
+item_2/id = 2
+item_3/text = "Integer"
+item_3/id = 3
+item_4/text = "String"
+item_4/id = 4
+item_5/text = "URL"
+item_5/id = 5
+script = ExtResource("27_an3wg")
+
+[node name="ComplexValuesMenu" type="PopupMenu" parent="ColorRect/NodeMenu"]
+auto_translate_mode = 1
+item_count = 3
+item_0/text = "PromptTemplate"
+item_1/text = "StringList"
+item_1/id = 1
+item_2/text = "Args"
+item_2/id = 2
+script = ExtResource("28_ou5m5")
+
+[node name="LoadDialog" type="FileDialog" parent="."]
+auto_translate_mode = 1
+title = "Open a File"
+size = Vector2i(207, 175)
+ok_button_text = "Open"
+file_mode = 0
+access = 1
+use_native_dialog = true
+script = ExtResource("31_ji0ta")
+
+[node name="SaveDialog" type="FileDialog" parent="."]
+access = 1
+use_native_dialog = true
+script = ExtResource("29_swhxb")
+
+[connection signal="child_entered_tree" from="ColorRect/VBoxContainer/GraphEdit" to="ColorRect/VBoxContainer/GraphEdit" method="_node_added"]
+[connection signal="popup_request" from="ColorRect/VBoxContainer/GraphEdit" to="ColorRect/VBoxContainer/GraphEdit" method="_popup_request"]

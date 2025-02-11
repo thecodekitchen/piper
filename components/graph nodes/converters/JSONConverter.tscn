@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0safs0stg53d"]
+
+[ext_resource type="Script" path="res://components/graph nodes/pipeline_node.gd" id="1_clk4q"]
+
+[node name="JsonConverter" type="GraphNode"]
+script = ExtResource("1_clk4q")

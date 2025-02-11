@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4akqbp2x0rcl"]
+
+[ext_resource type="Script" path="res://components/graph nodes/pipeline_node.gd" id="1_pa3wt"]
+
+[node name="ConditionalRouter" type="GraphNode"]
+script = ExtResource("1_pa3wt")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1e2ffpbrc64v"]
+
+[ext_resource type="Script" path="res://components/graph nodes/pipeline_node.gd" id="1_lmlhe"]
+
+[node name="VertexAiImageCaptioner" type="GraphNode"]
+script = ExtResource("1_lmlhe")

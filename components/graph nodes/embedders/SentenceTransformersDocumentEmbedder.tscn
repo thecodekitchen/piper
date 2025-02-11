@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://w7ulidiogpuo"]
+
+[ext_resource type="Script" path="res://components/graph nodes/pipeline_node.gd" id="1_qihhs"]
+
+[node name="SentenceTransformersDocumentEmbedder" type="GraphNode"]
+script = ExtResource("1_qihhs")

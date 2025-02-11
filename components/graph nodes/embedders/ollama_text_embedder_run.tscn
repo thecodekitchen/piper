@@ -1,0 +1,52 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbwo27sd12mtu"]
+
+[ext_resource type="Script" path="res://components/graph nodes/embedders/ollama_text_embedder_run.gd" id="1_enq2e"]
+
+[node name="OllamaTextEmbedderRun" type="GraphNode"]
+offset_top = 123.0
+offset_right = 225.0
+offset_bottom = 226.0
+draggable = false
+selectable = false
+title = "Run"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+script = ExtResource("1_enq2e")
+
+[node name="SlotContainer0" type="HBoxContainer" parent="."]
+layout_direction = 3
+layout_mode = 2
+theme_override_constants/separation = 70
+
+[node name="embedding" type="Label" parent="SlotContainer0"]
+layout_mode = 2
+text = "embedding
+"
+
+[node name="text" type="Label" parent="SlotContainer0"]
+layout_mode = 2
+text = "text"
+
+[node name="SlotContainer1" type="HBoxContainer" parent="."]
+layout_direction = 3
+layout_mode = 2
+
+[node name="metadata" type="Label" parent="SlotContainer1"]
+layout_mode = 2
+text = "metadata"

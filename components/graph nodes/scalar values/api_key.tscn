@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=3 uid="uid://djemh8g3vhulc"]
+
+[ext_resource type="Script" path="res://components/graph nodes/scalar values/api_key.gd" id="1_7wmwb"]
+
+[node name="ApiKey" type="GraphNode"]
+tooltip_text = "
+"
+title = "API Key"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+script = ExtResource("1_7wmwb")
+
+[node name="SlotContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Label" type="Label" parent="SlotContainer"]
+layout_mode = 2
+text = "Value: "
+
+[node name="APIKeyEdit" type="LineEdit" parent="SlotContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+virtual_keyboard_type = 6
+secret = true
+
+[node name="KeyContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="KeyContainer"]
+layout_mode = 2
+text = "Key: "
+
+[node name="KeyEdit" type="LineEdit" parent="KeyContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[connection signal="text_changed" from="SlotContainer/APIKeyEdit" to="." method="value_changed"]
+[connection signal="text_changed" from="KeyContainer/KeyEdit" to="." method="key_changed"]

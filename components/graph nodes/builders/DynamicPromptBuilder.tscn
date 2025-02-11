@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://xd02yqomuh4w"]
+
+[ext_resource type="Script" path="res://components/graph nodes/pipeline_node.gd" id="1_pjv30"]
+
+[node name="DynamicPromptBuilder" type="GraphNode"]
+script = ExtResource("1_pjv30")

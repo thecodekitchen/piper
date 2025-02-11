@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlwjblj12p14x"]
+
+[ext_resource type="Script" path="res://components/graph nodes/writers/document_writer_init.gd" id="1_a3d0b"]
+
+[node name="DocumentWriterInit" type="GraphNode"]
+offset_right = 218.0
+offset_bottom = 78.0
+title = "Init"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+script = ExtResource("1_a3d0b")
+
+[node name="SlotContainer0" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SlotContainer0"]
+layout_mode = 2
+text = "doc store"

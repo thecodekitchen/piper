@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbtk702syweju"]
+
+[ext_resource type="Script" path="res://components/graph nodes/retrievers/qdrant_embedding_retriever.gd" id="1_i12ed"]
+[ext_resource type="PackedScene" uid="uid://c2mwal7cgrr7v" path="res://components/graph nodes/retrievers/qdrant_embedding_retriever_init.tscn" id="2_qdpyl"]
+[ext_resource type="PackedScene" uid="uid://nip0l5dnctjl" path="res://components/graph nodes/retrievers/qdrant_embedding_retriever_run.tscn" id="3_7inld"]
+
+[node name="QdrantEmbeddingRetriever" type="GraphFrame"]
+offset_right = 9.0
+offset_bottom = 63.0
+title = "Qdrant Embedding Retriever"
+script = ExtResource("1_i12ed")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="QdrantEmbeddingRetrieverInit" parent="VBoxContainer" instance=ExtResource("2_qdpyl")]
+layout_mode = 2
+
+[node name="QdrantEmbeddingRetrieverRun" parent="VBoxContainer" instance=ExtResource("3_7inld")]
+layout_mode = 2

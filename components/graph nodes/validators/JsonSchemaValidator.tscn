@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpghp1nd14ila"]
+
+[ext_resource type="Script" path="res://components/graph nodes/pipeline_node.gd" id="1_0laxv"]
+
+[node name="JsonSchemaValidator" type="GraphNode"]
+script = ExtResource("1_0laxv")

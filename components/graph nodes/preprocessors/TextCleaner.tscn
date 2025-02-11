@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnyf2jm5ibc20"]
+
+[ext_resource type="Script" path="res://components/graph nodes/pipeline_node.gd" id="1_med2l"]
+
+[node name="TextCleaner" type="GraphNode"]
+script = ExtResource("1_med2l")

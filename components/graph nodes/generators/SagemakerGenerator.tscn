@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://vqstwagcat21"]
+
+[ext_resource type="Script" path="res://components/graph nodes/pipeline_node.gd" id="1_gq4vl"]
+
+[node name="SagemakerGenerator" type="GraphNode"]
+script = ExtResource("1_gq4vl")

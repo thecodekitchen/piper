@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0585pt1h7fck"]
+
+[ext_resource type="Script" path="res://components/graph nodes/pipeline_node.gd" id="1_4vf7p"]
+
+[node name="OptimumTextEmbedder" type="GraphNode"]
+script = ExtResource("1_4vf7p")

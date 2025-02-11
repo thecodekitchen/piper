@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://gif2xajxm5n8"]
+
+[ext_resource type="Script" path="res://components/graph nodes/pipeline_node.gd" id="1_gakaa"]
+
+[node name="AmazonBedrockChatGenerator" type="GraphNode"]
+script = ExtResource("1_gakaa")

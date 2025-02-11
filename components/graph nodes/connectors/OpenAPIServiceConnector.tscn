@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://fa3nte7cxvdi"]
+
+[ext_resource type="Script" path="res://components/graph nodes/pipeline_node.gd" id="1_xlvww"]
+
+[node name="OpenApiServiceConnector" type="GraphNode"]
+script = ExtResource("1_xlvww")

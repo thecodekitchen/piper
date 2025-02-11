@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0oo4hschmnxn"]
+
+[ext_resource type="Script" path="res://components/graph nodes/pipeline_node.gd" id="1_q827l"]
+
+[node name="ChromaQueryTextRetriever" type="GraphNode"]
+script = ExtResource("1_q827l")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bctmywn7f0ku2"]
+
+[ext_resource type="Script" path="res://components/graph nodes/pipeline_node.gd" id="1_r6wpn"]
+
+[node name="InMemoryBm25Retriever" type="GraphNode"]
+script = ExtResource("1_r6wpn")

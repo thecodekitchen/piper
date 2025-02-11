@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4tdptpcp88i6"]
+
+[ext_resource type="Script" path="res://components/graph nodes/pipeline_node.gd" id="1_u8s7m"]
+
+[node name="MongoDbAtlasDocumentStore" type="GraphNode"]
+script = ExtResource("1_u8s7m")

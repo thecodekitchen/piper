@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://wlop4pqmwcdw"]
+
+[ext_resource type="Script" path="res://components/graph nodes/pipeline_node.gd" id="1_5svhc"]
+
+[node name="InMemoryEmbeddingRetriever" type="GraphNode"]
+script = ExtResource("1_5svhc")

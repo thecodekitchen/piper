@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bn1wbnc15ji3l"]
+
+[ext_resource type="Script" path="res://components/graph nodes/pipeline_node.gd" id="1_61nx0"]
+
+[node name="CohereDocumentEmbedder" type="GraphNode"]
+script = ExtResource("1_61nx0")

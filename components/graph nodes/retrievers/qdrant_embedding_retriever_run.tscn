@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://nip0l5dnctjl"]
+
+[ext_resource type="Script" path="res://components/graph nodes/retrievers/run.gd" id="1_cy6l5"]
+
+[node name="QdrantEmbeddingRetrieverRun" type="GraphNode"]
+offset_top = 82.0
+offset_right = 281.0
+offset_bottom = 160.0
+title = "Run"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+script = ExtResource("1_cy6l5")
+
+[node name="SlotContainer0" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 70
+
+[node name="Label" type="Label" parent="SlotContainer0"]
+layout_mode = 2
+text = "embedding"
+
+[node name="Label2" type="Label" parent="SlotContainer0"]
+layout_mode = 2
+text = "documents"

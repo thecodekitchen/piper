@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0bvpcbas82tj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kcwpd"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.390445, 0.136797, 0.390969, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="SystemMessage" type="PanelContainer"]
+custom_minimum_size = Vector2(400, 0)
+offset_right = 30.0
+offset_bottom = 10.0
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_kcwpd")
+
+[node name="Label" type="RichTextLabel" parent="."]
+layout_mode = 2
+bbcode_enabled = true
+text = "
+"
+fit_content = true

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqbr2xvjwm5h8"]
+
+[ext_resource type="Script" path="res://components/graph nodes/pipeline_node.gd" id="1_t0an0"]
+
+[node name="WeaviateDocumentStore" type="GraphNode"]
+script = ExtResource("1_t0an0")

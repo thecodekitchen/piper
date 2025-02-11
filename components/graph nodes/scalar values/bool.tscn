@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsjfq5i1730ie"]
+
+[ext_resource type="Script" path="res://components/graph nodes/scalar values/bool.gd" id="1_pu5tl"]
+
+[node name="Bool" type="GraphNode"]
+title = "Boolean"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+script = ExtResource("1_pu5tl")
+
+[node name="SlotContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="CheckButton" type="CheckButton" parent="SlotContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SlotContainer"]
+layout_mode = 2
+text = "False"
+
+[node name="KeyContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="KeyContainer"]
+layout_mode = 2
+text = "Key:"
+
+[node name="LineEdit" type="LineEdit" parent="KeyContainer"]
+layout_mode = 2
+
+[connection signal="toggled" from="SlotContainer/CheckButton" to="." method="toggle_value"]
+[connection signal="text_changed" from="KeyContainer/LineEdit" to="." method="key_changed"]

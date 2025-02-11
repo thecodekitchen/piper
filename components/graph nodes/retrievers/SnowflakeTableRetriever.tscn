@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2qpidsya42gh"]
+
+[ext_resource type="Script" path="res://components/graph nodes/pipeline_node.gd" id="1_e4d4v"]
+
+[node name="SnowflakeTableRetriever" type="GraphNode"]
+script = ExtResource("1_e4d4v")

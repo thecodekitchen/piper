@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtubkpr56q7r5"]
+
+[ext_resource type="Script" path="res://components/graph nodes/pipeline_node.gd" id="1_qcb5n"]
+
+[node name="MistralDocumentEmbedder" type="GraphNode"]
+script = ExtResource("1_qcb5n")

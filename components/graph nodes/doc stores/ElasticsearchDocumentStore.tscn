@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://orqbat06oxyh"]
+
+[ext_resource type="Script" path="res://components/graph nodes/pipeline_node.gd" id="1_sb1dy"]
+
+[node name="ElasticsearchDocumentStore" type="GraphNode"]
+script = ExtResource("1_sb1dy")

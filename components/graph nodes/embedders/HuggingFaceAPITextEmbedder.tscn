@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://nl2bpoq3xlqk"]
+
+[ext_resource type="Script" path="res://components/graph nodes/pipeline_node.gd" id="1_sy8sk"]
+
+[node name="HuggingFaceApiTextEmbedder" type="GraphNode"]
+script = ExtResource("1_sy8sk")

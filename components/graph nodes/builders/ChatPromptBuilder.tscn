@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://mnqv1cxw3rhs"]
+
+[ext_resource type="Script" path="res://components/graph nodes/builders/chat_prompt_builder.gd" id="1_y55ka"]
+[ext_resource type="PackedScene" uid="uid://nusd7kut7lgr" path="res://components/graph nodes/builders/chat_prompt_builder_init.tscn" id="2_8yqdw"]
+[ext_resource type="PackedScene" uid="uid://crnp1cj5u5hbj" path="res://components/graph nodes/builders/chat_prompt_builder_run.tscn" id="3_rygkk"]
+
+[node name="ChatPromptBuilder" type="GraphFrame"]
+offset_right = 225.0
+offset_bottom = 63.0
+title = "Chat Prompt Builder"
+script = ExtResource("1_y55ka")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ChatPromptBuilderInit" parent="VBoxContainer" instance=ExtResource("2_8yqdw")]
+layout_mode = 2
+
+[node name="ChatPromptBuilderRun" parent="VBoxContainer" instance=ExtResource("3_rygkk")]
+layout_mode = 2

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5uvlojh7p1dt"]
+
+[ext_resource type="Script" path="res://components/graph nodes/pipeline_node.gd" id="1_gwtbs"]
+
+[node name="AzureOpenAiDocumentEmbedder" type="GraphNode"]
+script = ExtResource("1_gwtbs")
