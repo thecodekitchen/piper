@@ -17,6 +17,8 @@ func _ready() -> void:
 	]
 	if not data.has("value"):
 		data["value"]={}
+	if not data.has("api_variables"):
+		data["api_variables"]={}
 	inputs_allow_multi = [
 		false,
 		false,
@@ -55,3 +57,13 @@ func handle_port_change(port:int,val)->void:
 					set_value(data["value"])
 				print("updated arg_dict: ", data["value"])
 				
+func handle_param_assignment(port:int,param_data)->void:
+	if param_data.has("name"):
+		var param = param_data["name"]
+		match port:
+			0:
+				data["api_variables"]["template"] = param
+			1:
+				data["api_variables"]["variables"] = param
+			2:
+				data["api_variables"]["required_variables"] = param

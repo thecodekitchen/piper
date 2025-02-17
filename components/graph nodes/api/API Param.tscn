@@ -90,7 +90,6 @@ text = "Location: "
 [node name="LocOptionButton" type="OptionButton" parent="LocPicker"]
 layout_mode = 2
 size_flags_horizontal = 3
-selected = 2
 item_count = 3
 popup/item_0/text = "Path"
 popup/item_1/text = "Query"

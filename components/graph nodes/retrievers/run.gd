@@ -10,5 +10,11 @@ func _ready() -> void:
 		Pipeline.DataType.DocumentList
 	]
 	slot(0,Pipeline.DataType.Embedding,Pipeline.DataType.DocumentList)
-	data["receivers"] = ["retriever.embedding"]
+	data["receivers"] = ["retriever.query_embedding"]
 	data["senders"] = ["retriever.documents"]
+	if not data.has("api_variables"):
+		data["api_variables"] = {}
+		
+func handle_param_assignment(port:int,param_data)->void:
+	if param_data.has("name"):
+		data["api_variables"]["embedding"] = param_data["name"]

@@ -15,3 +15,11 @@ func _ready() -> void:
 	slot(1,Pipeline.DataType.None,Pipeline.DataType.MetaDict)
 	data["receivers"] = ["text_embedder.text"]
 	data["senders"] = ["text_embedder.embedding", "text_embedder.meta"]
+	data["component_name"] = "text_embedder"
+	if not data.has("api_variables"):
+		data["api_variables"] = {}
+	
+func handle_param_assignment(port:int,param_data)->void:
+	if param_data.has("name"):
+		var param = param_data["name"]
+		data["api_variables"]["text"] = param

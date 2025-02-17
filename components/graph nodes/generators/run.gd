@@ -13,3 +13,4 @@ func _ready() -> void:
 	slot(0,Pipeline.DataType.ChatMessageList,Pipeline.DataType.ChatMessageList)
 	data["receivers"] = ["chat_generator.messages"]
 	data["senders"] = ["chat_generator.replies"]
+	data["component_name"] = "chat_generator"

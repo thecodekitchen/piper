@@ -1,12 +1,7 @@
 extends TextEdit
-var scroll_window: VBoxContainer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	scroll_window = $"../ChatScrollWindow/ChatWindow"
-	size.x = scroll_window.size.x - 20
-
-func _process(_delta: float) -> void:
-	size.x = scroll_window.size.x - 20
+	pass
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and event.keycode == KEY_ENTER:

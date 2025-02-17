@@ -1,7 +1,9 @@
-[gd_scene load_steps=32 format=3 uid="uid://bslafliymlx6i"]
+[gd_scene load_steps=44 format=3 uid="uid://bslafliymlx6i"]
 
 [ext_resource type="Script" path="res://pipeline_editor.gd" id="1_r4cx3"]
 [ext_resource type="Script" path="res://scripts/signalling/pipeline_graph.gd" id="2_nlb4m"]
+[ext_resource type="Script" path="res://home_button.gd" id="2_yg61p"]
+[ext_resource type="Script" path="res://settings_button.gd" id="3_aalks"]
 [ext_resource type="Script" path="res://scripts/pipeline editor menus/node_menu.gd" id="3_h7f13"]
 [ext_resource type="Script" path="res://scripts/pipeline editor menus/doc_store_menu.gd" id="4_ouk7u"]
 [ext_resource type="Script" path="res://api_menu.gd" id="4_p6pen"]
@@ -31,6 +33,26 @@
 [ext_resource type="Script" path="res://complex_values_menu.gd" id="28_ou5m5"]
 [ext_resource type="Script" path="res://save_dialog.gd" id="29_swhxb"]
 [ext_resource type="Script" path="res://load_dialog.gd" id="31_ji0ta"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sltxb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2fsc2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pb518"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bvrlf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l134b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_weqvq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1swy7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gbuo4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oh06n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1qwrk"]
 
 [node name="PipelineEditor" type="Control"]
 layout_mode = 3
@@ -66,22 +88,38 @@ layout_mode = 2
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+theme_override_constants/separation = 10
 
 [node name="FileMenuButton" type="MenuButton" parent="ColorRect/VBoxContainer/MenuBar/HBoxContainer"]
 layout_mode = 2
 text = "File"
+switch_on_hover = true
 item_count = 2
 popup/item_0/text = "Save Pipeline"
 popup/item_1/text = "Load Pipeline"
 popup/item_1/id = 1
 
-[node name="EditMenuButton" type="MenuButton" parent="ColorRect/VBoxContainer/MenuBar/HBoxContainer"]
+[node name="HomeButton" type="Button" parent="ColorRect/VBoxContainer/MenuBar/HBoxContainer"]
 layout_mode = 2
-text = "Edit"
-item_count = 1
-popup/item_0/text = "Chat"
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sltxb")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_2fsc2")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_pb518")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_bvrlf")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_l134b")
+text = "Home"
+script = ExtResource("2_yg61p")
 
-[node name="GraphEdit" type="GraphEdit" parent="ColorRect/VBoxContainer"]
+[node name="SettingsButton" type="Button" parent="ColorRect/VBoxContainer/MenuBar/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_weqvq")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_1swy7")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_gbuo4")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_oh06n")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1qwrk")
+text = "Settings"
+script = ExtResource("3_aalks")
+
+[node name="GraphEdit" type="GraphEdit" parent="ColorRect/VBoxContainer" groups=["PipelineGraph"]]
 layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("2_nlb4m")
@@ -544,7 +582,7 @@ item_2/text = "Args"
 item_2/id = 2
 script = ExtResource("28_ou5m5")
 
-[node name="LoadDialog" type="FileDialog" parent="."]
+[node name="LoadDialog" type="FileDialog" parent="." groups=["LoadDialog"]]
 auto_translate_mode = 1
 title = "Open a File"
 size = Vector2i(207, 175)

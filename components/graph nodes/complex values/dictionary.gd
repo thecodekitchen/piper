@@ -25,7 +25,16 @@ func _ready() -> void:
 			var type = int(data["kwargs"][kwarg]["enum"])
 			make_kwarg_slot(kwarg, i+1,type)
 			inputs.append(type)
-			
+	
+	if not data.has("value"):
+		data["value"] = {
+			"kwargs": {},
+			"api_variables": {}
+		}
+		if data.has("kwargs"):
+			for key in data["kwargs"].keys():
+				data["value"]["kwargs"][key] = {"required": false}
+
 	
 	slot(0,Pipeline.DataType.ArgDict,Pipeline.DataType.ArgDict)
 		
@@ -40,6 +49,20 @@ func conn_request(from:StringName,from_port:int,to:StringName,to_port:int)->void
 			"name": Pipeline.DataType.keys()[origin_type],
 			"enum": origin_type
 		}
+		data["value"]["kwargs"][kwarg_key] = {
+			"required": kwarg_map[kwarg_key]
+		}
+		if origin.data.has("senders") and origin.data["senders"].size()>from_port:
+			var sender = origin.data["senders"][from_port]
+			if not data["value"].has("senders"):
+				data["value"]["senders"] = {
+					kwarg_key: sender
+				}
+			else:
+				data["value"]["senders"][kwarg_key] = sender
+				
+		set_value(data["value"])
+		
 		print("updated kwargs: ", data["kwargs"])
 		set_slot_color_left(to_port,origin_color)
 		set_slot_type_left(to_port,origin_type)
@@ -60,7 +83,23 @@ func handle_port_change(port:int,val)->void:
 		else:
 			kwarg_map = val
 			update_kwarg_slots()
-	
+	else:
+#		hard-coded value was passed to a dynamic arg slot. Signal the target node with the change.
+		var arg_name = kwarg_slots[port]["kwarg"]
+		if not data["value"].has("values"):
+			data["value"]["values"] = {
+				arg_name: val
+			}
+		else:
+			data["value"]["values"][arg_name] = val
+		set_value(data["value"])
+		
+func handle_param_assignment(port:int,param_data)->void:
+	if port != 0 and param_data.has("name"):
+		var arg_name = kwarg_slots[port]["kwarg"]
+		data["value"]["api_variables"][arg_name] = param_data["name"]
+		set_value(data["value"])
+		
 func type_map_connected()->void:
 	var slot_number = 1
 	for kwarg in kwarg_map.keys():

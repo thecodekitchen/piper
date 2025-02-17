@@ -1,19 +1,16 @@
 extends PipelineGraphNode
 
-var loc_options:OptionButton
-var type_options:OptionButton
-var name_edit:LineEdit
+@onready var loc_options:OptionButton = $LocPicker/LocOptionButton
+@onready var type_options:OptionButton = $TypeRow/TypeOptionButton
+@onready var name_edit:LineEdit = $NameRow/NameEdit
 
 func _ready() -> void:
 	super._ready()
 	inputs = [Pipeline.DataType.APIRoute]
 	outputs = [Pipeline.DataType.PlainString]
 	slot(0,Pipeline.DataType.APIRoute,Pipeline.DataType.PlainString)
-	loc_options = $LocPicker/LocOptionButton
-	loc_options.item_selected.connect(handle_select)
-	type_options = $TypeRow/TypeOptionButton
+	loc_options.item_selected.connect(handle_loc_change)
 	type_options.item_selected.connect(handle_type_change)
-	name_edit = $NameRow/NameEdit
 	name_edit.text_changed.connect(handle_name_change)
 	
 	if data.has("api_param"):
@@ -39,6 +36,7 @@ func _ready() -> void:
 			"loc": "Path",
 			"name": ""
 		}
+		loc_options.select(0)
 	
 	
 func handle_port_change(port:int,val)->void:
@@ -50,9 +48,10 @@ func handle_port_change(port:int,val)->void:
 	else:
 		loc_options.set_item_disabled(2,false)
 		
-func handle_select(idx:int):
+func handle_loc_change(idx:int):
 	var option = loc_options.get_item_text(idx)
 	data["api_param"]["loc"] = option
+	print("location updated to ", data["api_param"]["loc"])
 	
 func handle_name_change(new:String)->void:
 	data["api_param"]["name"] = new

@@ -36,6 +36,8 @@ func _ready() -> void:
 		"file_type_router.application/pdf",
 		"file_type_router.application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" 
 	]
+	if not data.has("api_variables"):
+		data["api_variables"] = {}
 	slot(0,Pipeline.DataType.PathList,Pipeline.DataType.PathList)
 	slot(1,Pipeline.DataType.None,Pipeline.DataType.PathList)
 	slot(2,Pipeline.DataType.None,Pipeline.DataType.PathList)
@@ -44,4 +46,6 @@ func _ready() -> void:
 	slot(5,Pipeline.DataType.None,Pipeline.DataType.PathList)
 	slot(6,Pipeline.DataType.None,Pipeline.DataType.PathList)
 	
-	
+func handle_param_assignment(port:int,param_data)->void:
+	if param_data.has("name"):
+		data["api_variables"]["sources"] = param_data["name"]

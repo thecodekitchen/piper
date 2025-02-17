@@ -31,7 +31,8 @@ func _ready() -> void:
 	else:
 		graph_editor = parent.get_parent().get_parent() as PipelineGraphEdit
 		connect_signals()
-	data["connections"] = {}
+	if not data.has("connections"):
+		data["connections"] = {}
 	
 func slot(
 	idx:int,
@@ -123,6 +124,7 @@ func conn_request(from:StringName,from_port:int,to:StringName,to_port:int)->void
 				data_sources[to_port] = [origin_node.name]
 				
 			connect_nodes(from,from_port,to,to_port)
+			trace_route(origin_node)
 			origin_node.value_updated.connect(input_updated)
 			if origin_node.data.has("value"):
 				handle_port_change(to_port,origin_node.data["value"])
@@ -146,6 +148,7 @@ func set_value(val)->void:
 	emit_signal("value_updated",val,name)
 	
 func input_updated(data,src:StringName)->void:
+	trace_route(graph_editor.get_node(NodePath(src)))
 	for port in data_sources:
 		if (data_sources[port] as Array[StringName]).find(src) != -1:
 			handle_port_change(port,data)
@@ -177,3 +180,15 @@ func handle_port_change(port:int,data)->void:
 @warning_ignore("unused_parameter")	
 func handle_param_assignment(port:int,param_data)->void:
 	pass
+
+func trace_route(from_node:PipelineGraphNode)->void:
+	if from_node.data.has("pipeline"):
+		data["pipeline"] = from_node.data["pipeline"]
+	elif from_node.data.has("api_param"):
+		data["pipeline"] = from_node.data["api_param"]["route"]
+	if data.has("pipeline") and name.ends_with("Run"):
+		var init_node_name = name.rstrip("Run")+"Init"
+		var init_node = graph_editor.get_node(NodePath(init_node_name)) as PipelineGraphNode
+		init_node.data["pipeline"] = data["pipeline"]
+			
+		

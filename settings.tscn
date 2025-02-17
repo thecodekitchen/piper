@@ -1,0 +1,245 @@
+[gd_scene load_steps=23 format=3 uid="uid://dnlwgvmbtlqsi"]
+
+[ext_resource type="Script" path="res://home_button.gd" id="1_stxmv"]
+[ext_resource type="Script" path="res://pipeline_menu.gd" id="2_bmfmj"]
+[ext_resource type="Script" path="res://scripts/signalling/ollama_url_edit.gd" id="3_22awh"]
+[ext_resource type="Script" path="res://ollama_model_puller.gd" id="3_vhml4"]
+[ext_resource type="Script" path="res://success_row.gd" id="4_hkmf2"]
+[ext_resource type="Script" path="res://scripts/signalling/doc_store_url_edit.gd" id="5_rgcsy"]
+[ext_resource type="Script" path="res://doc_store_api_key_edit.gd" id="7_6nkmp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_va51g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vig30"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r5ior"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ch6r7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_16p3i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2c4jb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t5ntm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_46hkn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2y1xx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_74wlq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0vqby"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6sk2"]
+bg_color = Color(0.1253, 0.287345, 1.44392e-07, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7arhd"]
+content_margin_left = 5.0
+content_margin_right = 5.0
+bg_color = Color(0.0828903, 0.216408, 0.120971, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_72q8b"]
+content_margin_left = 5.0
+content_margin_right = 5.0
+bg_color = Color(0.103706, 0.257246, 0.147486, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_88pov"]
+content_margin_left = 5.0
+content_margin_right = 5.0
+bg_color = Color(0.473762, 0.171058, 0.160812, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0828903, 0.216408, 0.120971, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuBar" type="MenuBar" parent="ColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/VBoxContainer/MenuBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="HomeButton" type="Button" parent="ColorRect/VBoxContainer/MenuBar/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_va51g")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vig30")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_r5ior")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ch6r7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_16p3i")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2c4jb")
+text = "Home"
+script = ExtResource("1_stxmv")
+
+[node name="PipelineMenu" type="Button" parent="ColorRect/VBoxContainer/MenuBar/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t5ntm")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_46hkn")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_2y1xx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_74wlq")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0vqby")
+text = "Pipeline"
+script = ExtResource("2_bmfmj")
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="ColorRect/VBoxContainer/CenterContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_g6sk2")
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/VBoxContainer/CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/VBoxContainer/CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="OllamaLabel" type="Label" parent="ColorRect/VBoxContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Ollama"
+
+[node name="OllamaURLRow" type="HBoxContainer" parent="ColorRect/VBoxContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="OllamaURLLabel" type="Label" parent="ColorRect/VBoxContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/OllamaURLRow"]
+layout_mode = 2
+text = "URL: "
+
+[node name="OllamaURLEdit" type="LineEdit" parent="ColorRect/VBoxContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/OllamaURLRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "http://localhost:11434"
+script = ExtResource("3_22awh")
+
+[node name="OllamaModelPuller" type="HBoxContainer" parent="ColorRect/VBoxContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+script = ExtResource("3_vhml4")
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/OllamaModelPuller"]
+layout_mode = 2
+text = "Pull A Model: "
+
+[node name="LineEdit" type="LineEdit" parent="ColorRect/VBoxContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/OllamaModelPuller"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_7arhd")
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/OllamaModelPuller"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_72q8b")
+text = "Pull"
+
+[node name="SuccessRow" type="HBoxContainer" parent="ColorRect/VBoxContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+alignment = 1
+script = ExtResource("4_hkmf2")
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/SuccessRow"]
+layout_mode = 2
+text = "Succesfully pulled model!"
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/SuccessRow"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_88pov")
+text = "dismiss"
+
+[node name="DocStoreLabel" type="Label" parent="ColorRect/VBoxContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Document Store"
+
+[node name="DocStoreTypeRow" type="HBoxContainer" parent="ColorRect/VBoxContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TypeLabel" type="Label" parent="ColorRect/VBoxContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/DocStoreTypeRow"]
+layout_mode = 2
+text = "Type: "
+
+[node name="TypeOptionButton" type="OptionButton" parent="ColorRect/VBoxContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/DocStoreTypeRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 3
+popup/item_0/text = "Qdrant"
+popup/item_1/text = "Chroma"
+popup/item_1/id = 1
+popup/item_1/disabled = true
+popup/item_2/text = "Weaviate"
+popup/item_2/id = 2
+popup/item_2/disabled = true
+
+[node name="DocStoreURLRow" type="HBoxContainer" parent="ColorRect/VBoxContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="DocStoreURLLabel" type="Label" parent="ColorRect/VBoxContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/DocStoreURLRow"]
+layout_mode = 2
+text = "URL: "
+
+[node name="DocStoreURLEdit" type="LineEdit" parent="ColorRect/VBoxContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/DocStoreURLRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "http://localhost:6333"
+script = ExtResource("5_rgcsy")
+
+[node name="DocStoreAPIKeyEdit" type="HBoxContainer" parent="ColorRect/VBoxContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="DocStoreAPIKeyLabel" type="Label" parent="ColorRect/VBoxContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/DocStoreAPIKeyEdit"]
+layout_mode = 2
+text = "API Key: "
+
+[node name="DocStoreAPIKeyEdit" type="LineEdit" parent="ColorRect/VBoxContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/DocStoreAPIKeyEdit"]
+layout_mode = 2
+size_flags_horizontal = 3
+secret = true
+script = ExtResource("7_6nkmp")

@@ -7,6 +7,8 @@ func _ready() -> void:
 	inputs = [Pipeline.DataType.DocStore]
 	outputs = []
 	slot(0,Pipeline.DataType.DocStore)
+	data["component_name"] = "document_writer"
+	data["import"] = "haystack.components.writers.document_writer.DocumentWriter"
 	data["policy"] = "NONE"
 	
 func handle_port_change(port:int,val)->void:

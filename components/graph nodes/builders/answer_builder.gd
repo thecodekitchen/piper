@@ -24,3 +24,16 @@ func _ready() -> void:
 	data["senders"] = [
 		"answer_builder.answers"
 	]
+	if not data.has("api_variables"):
+		data["api_variables"] = {}
+	
+func handle_param_assignment(port:int,param_data)->void:
+	if param_data.has("name"):
+		var param = param_data["name"]
+		match port:
+			0:
+				data["api_variables"]["query"] = param
+			1:
+				data["api_variables"]["replies"] = param
+			2:
+				data["api_variables"]["documents"] = param

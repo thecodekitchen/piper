@@ -1,39 +1,65 @@
-[gd_scene load_steps=11 format=3 uid="uid://clal76rk80pug"]
+[gd_scene load_steps=26 format=3 uid="uid://clal76rk80pug"]
 
-[ext_resource type="Script" path="res://main_scene.gd" id="1_icjq7"]
-[ext_resource type="Script" path="res://scripts/signalling/chat_window.gd" id="1_k2bhd"]
-[ext_resource type="Script" path="res://scripts/signalling/chat_editor.gd" id="3_nscl8"]
-[ext_resource type="PackedScene" uid="uid://cdblubcgy14b7" path="res://components/model_picker.tscn" id="4_sushn"]
-[ext_resource type="Script" path="res://scripts/signalling/collection_picker.gd" id="5_mgs0b"]
-[ext_resource type="Script" path="res://scripts/signalling/new_collection_button.gd" id="5_r1sle"]
+[ext_resource type="Script" path="res://pipeline_menu.gd" id="1_fga3a"]
+[ext_resource type="Script" path="res://conversation_box.gd" id="1_j4q8b"]
+[ext_resource type="Script" path="res://conversation_list.gd" id="2_oh8d6"]
+[ext_resource type="Script" path="res://settings_button.gd" id="2_rkgon"]
+[ext_resource type="Script" path="res://scripts/signalling/collection_select.gd" id="5_0kl0e"]
+[ext_resource type="Script" path="res://chat_edit.gd" id="5_hl5o8"]
+[ext_resource type="Script" path="res://scripts/signalling/collection_folder_dialog.gd" id="6_xom7l"]
+[ext_resource type="Script" path="res://new_collection_button.gd" id="7_3lfrk"]
+[ext_resource type="Script" path="res://send_button.gd" id="8_5q6m2"]
+[ext_resource type="Script" path="res://sources_list.gd" id="9_tff5l"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0qpmu"]
-content_margin_left = 5.0
-content_margin_right = 5.0
-bg_color = Color(0.266667, 0.0509804, 0.219608, 0.784314)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nkx6i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dj7yx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v3cii"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_un5gm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kso6n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a5o53"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rfqbj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6l0vg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pu4jb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cpyin"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_skbvg"]
+bg_color = Color(0.1253, 0.287345, 1.44392e-07, 1)
+corner_radius_top_right = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ogq1e"]
+bg_color = Color(0.1253, 0.287345, 1.44392e-07, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_or6sm"]
-bg_color = Color(0.103015, 0.364618, 0.102817, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qcutf"]
-content_margin_left = 5.0
-content_margin_top = 5.0
-content_margin_right = 5.0
-content_margin_bottom = 5.0
-bg_color = Color(0.129412, 0.439216, 0.129412, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ofnc7"]
+bg_color = Color(0.123098, 0.283164, 1.44392e-07, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5isnc"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xcwhl"]
 content_margin_left = 5.0
 content_margin_right = 5.0
-bg_color = Color(0.266667, 0.0509804, 0.219608, 0.784314)
+bg_color = Color(0.1253, 0.287345, 1.44392e-07, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_76wq5"]
+bg_color = Color(0.1253, 0.287345, 1.44392e-07, 1)
 corner_radius_top_left = 5
 
 [node name="MainScene" type="Control"]
@@ -43,7 +69,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_icjq7")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -67,112 +92,50 @@ custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Background/VBoxContainer/MenuBar"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
 
-[node name="FileMenuButton" type="MenuButton" parent="Background/VBoxContainer/MenuBar/HBoxContainer"]
+[node name="PipelineButton" type="Button" parent="Background/VBoxContainer/MenuBar/HBoxContainer"]
 layout_mode = 2
-text = "File"
-item_count = 2
-popup/item_0/text = "Save Conversation"
-popup/item_1/text = "Load Conversation"
-popup/item_1/id = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nkx6i")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_dj7yx")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_v3cii")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_un5gm")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kso6n")
+text = "Pipeline"
+script = ExtResource("1_fga3a")
 
-[node name="EditMenuButton" type="MenuButton" parent="Background/VBoxContainer/MenuBar/HBoxContainer"]
+[node name="SettingsButton" type="Button" parent="Background/VBoxContainer/MenuBar/HBoxContainer"]
 layout_mode = 2
-text = "Edit
-"
-item_count = 1
-popup/item_0/text = "Pipeline Editor"
+theme_override_styles/focus = SubResource("StyleBoxEmpty_a5o53")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rfqbj")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6l0vg")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_pu4jb")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cpyin")
+text = "Settings"
+script = ExtResource("2_rkgon")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Background/VBoxContainer"]
+[node name="GridContainer" type="GridContainer" parent="Background/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 3
+
+[node name="LeftColumn" type="VBoxContainer" parent="Background/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Panel" type="MarginContainer" parent="Background/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(952, 608)
+[node name="Panel" type="Panel" parent="Background/VBoxContainer/GridContainer/LeftColumn"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-
-[node name="CenterStack" type="VBoxContainer" parent="Background/VBoxContainer/HBoxContainer/Panel"]
-custom_minimum_size = Vector2(952, 608)
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="ChatScrollWindow" type="ScrollContainer" parent="Background/VBoxContainer/HBoxContainer/Panel/CenterStack"]
-custom_minimum_size = Vector2(922, 380)
-layout_mode = 2
-follow_focus = true
-horizontal_scroll_mode = 0
-
-[node name="ChatWindow" type="VBoxContainer" parent="Background/VBoxContainer/HBoxContainer/Panel/CenterStack/ChatScrollWindow"]
-custom_minimum_size = Vector2(922, 380)
-layout_mode = 2
-size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/separation = 20
-script = ExtResource("1_k2bhd")
+theme_override_styles/panel = SubResource("StyleBoxFlat_skbvg")
 
-[node name="ChatEditor" type="TextEdit" parent="Background/VBoxContainer/HBoxContainer/Panel/CenterStack"]
-clip_contents = false
-custom_minimum_size = Vector2(922, 162)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme_override_font_sizes/font_size = 12
-theme_override_styles/normal = SubResource("StyleBoxFlat_0qpmu")
-placeholder_text = "Send a message with the selected collection as context ..."
-scroll_smooth = true
-scroll_past_end_of_file = true
-script = ExtResource("3_nscl8")
-
-[node name="ChatOptionsRow" type="HBoxContainer" parent="Background/VBoxContainer/HBoxContainer/Panel/CenterStack"]
-custom_minimum_size = Vector2(922, 0)
-layout_direction = 3
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 10
-
-[node name="SendButton" type="Button" parent="Background/VBoxContainer/HBoxContainer/Panel/CenterStack/ChatOptionsRow"]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
-theme_override_colors/font_hover_color = Color(0.470369, 0.00940759, 0.414192, 1)
-theme_override_colors/font_pressed_color = Color(0.750179, 0.0503381, 0.664284, 1)
-theme_override_colors/font_focus_color = Color(0.558503, 0.014861, 0.492916, 1)
-theme_override_colors/font_color = Color(0.570526, 0.0152903, 0.503317, 1)
-theme_override_styles/hover = SubResource("StyleBoxFlat_or6sm")
-theme_override_styles/normal = SubResource("StyleBoxFlat_qcutf")
-text = "Send"
-
-[node name="ModelPicker" parent="Background/VBoxContainer/HBoxContainer/Panel/CenterStack/ChatOptionsRow" instance=ExtResource("4_sushn")]
-layout_mode = 2
-
-[node name="ModelPickerLabel" type="Label" parent="Background/VBoxContainer/HBoxContainer/Panel/CenterStack/ChatOptionsRow"]
-layout_mode = 2
-text = "Model:
-"
-
-[node name="CollectionPicker" type="OptionButton" parent="Background/VBoxContainer/HBoxContainer/Panel/CenterStack/ChatOptionsRow"]
-layout_mode = 2
-script = ExtResource("5_mgs0b")
-
-[node name="CollectionPickerLabel" type="Label" parent="Background/VBoxContainer/HBoxContainer/Panel/CenterStack/ChatOptionsRow"]
-layout_mode = 2
-text = "Collection:"
-
-[node name="NewCollectionButton" type="Button" parent="Background/VBoxContainer/HBoxContainer/Panel/CenterStack/ChatOptionsRow"]
-layout_mode = 2
-text = "New Collection"
-script = ExtResource("5_r1sle")
-
-[node name="RightPanel" type="Panel" parent="Background/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(200, 608)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_5isnc")
-
-[node name="RightHandVBox" type="VBoxContainer" parent="Background/VBoxContainer/HBoxContainer/RightPanel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/VBoxContainer/GridContainer/LeftColumn/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -180,9 +143,126 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="RightPanelTitle" type="Label" parent="Background/VBoxContainer/HBoxContainer/RightPanel/RightHandVBox"]
+[node name="Label" type="Label" parent="Background/VBoxContainer/GridContainer/LeftColumn/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Conversations"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Background/VBoxContainer/GridContainer/LeftColumn/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ConversationList" type="VBoxContainer" parent="Background/VBoxContainer/GridContainer/LeftColumn/Panel/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("2_oh8d6")
+
+[node name="CenterColumn" type="VBoxContainer" parent="Background/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Background/VBoxContainer/GridContainer/CenterColumn"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/VBoxContainer/GridContainer/CenterColumn/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Background/VBoxContainer/GridContainer/CenterColumn/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ConversationBox" type="VBoxContainer" parent="Background/VBoxContainer/GridContainer/CenterColumn/MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_j4q8b")
+
+[node name="ChatEdit" type="TextEdit" parent="Background/VBoxContainer/GridContainer/CenterColumn/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ogq1e")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ofnc7")
+placeholder_text = "Ask a question..."
+script = ExtResource("5_hl5o8")
+
+[node name="SubmissionRow" type="HBoxContainer" parent="Background/VBoxContainer/GridContainer/CenterColumn/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="CollectionLabel" type="Label" parent="Background/VBoxContainer/GridContainer/CenterColumn/MarginContainer/VBoxContainer/SubmissionRow"]
+layout_mode = 2
+text = "Select Collection: "
+
+[node name="CollectionSelect" type="OptionButton" parent="Background/VBoxContainer/GridContainer/CenterColumn/MarginContainer/VBoxContainer/SubmissionRow"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+script = ExtResource("5_0kl0e")
+
+[node name="NewCollectionButton" type="Button" parent="Background/VBoxContainer/GridContainer/CenterColumn/MarginContainer/VBoxContainer/SubmissionRow"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_xcwhl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_xcwhl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xcwhl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xcwhl")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xcwhl")
+text = "New Collection"
+script = ExtResource("7_3lfrk")
+
+[node name="SendButton" type="Button" parent="Background/VBoxContainer/GridContainer/CenterColumn/MarginContainer/VBoxContainer/SubmissionRow"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_xcwhl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_xcwhl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xcwhl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xcwhl")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xcwhl")
+text = "Send"
+script = ExtResource("8_5q6m2")
+
+[node name="RightColumn" type="VBoxContainer" parent="Background/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Background/VBoxContainer/GridContainer/RightColumn"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_76wq5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/VBoxContainer/GridContainer/RightColumn/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Background/VBoxContainer/GridContainer/RightColumn/Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Sources"
+horizontal_alignment = 1
 
-[connection signal="text_set" from="Background/VBoxContainer/HBoxContainer/Panel/CenterStack/ChatEditor" to="Background/VBoxContainer/HBoxContainer/Panel/CenterStack/ChatScrollWindow/ChatWindow" method="chat_editor_set"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Background/VBoxContainer/GridContainer/RightColumn/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SourcesList" type="VBoxContainer" parent="Background/VBoxContainer/GridContainer/RightColumn/Panel/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("9_tff5l")
+
+[node name="CollectionFolderDialog" type="FileDialog" parent="Background"]
+title = "Open a Directory"
+ok_button_text = "Select Current Folder"
+file_mode = 2
+use_native_dialog = true
+script = ExtResource("6_xom7l")
