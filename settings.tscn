@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dnlwgvmbtlqsi"]
+[gd_scene load_steps=25 format=3 uid="uid://dnlwgvmbtlqsi"]
 
 [ext_resource type="Script" path="res://home_button.gd" id="1_stxmv"]
 [ext_resource type="Script" path="res://pipeline_menu.gd" id="2_bmfmj"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" path="res://success_row.gd" id="4_hkmf2"]
 [ext_resource type="Script" path="res://scripts/signalling/doc_store_url_edit.gd" id="5_rgcsy"]
 [ext_resource type="Script" path="res://doc_store_api_key_edit.gd" id="7_6nkmp"]
+[ext_resource type="Script" path="res://scripts/signalling/collection_dir_dialog.gd" id="8_5qa0x"]
+[ext_resource type="Script" path="res://scripts/signalling/doc_store_collection_folder_button.gd" id="8_xpyfc"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_va51g"]
 
@@ -243,3 +245,25 @@ layout_mode = 2
 size_flags_horizontal = 3
 secret = true
 script = ExtResource("7_6nkmp")
+
+[node name="DocStoreCollectionsRow" type="HBoxContainer" parent="ColorRect/VBoxContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="DocStoreCollectionsLabel" type="Label" parent="ColorRect/VBoxContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/DocStoreCollectionsRow"]
+layout_mode = 2
+text = "Collections Folder:"
+
+[node name="DocStoreCollectionFolderButton" type="Button" parent="ColorRect/VBoxContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/DocStoreCollectionsRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_72q8b")
+text = "Pick Folder"
+script = ExtResource("8_xpyfc")
+
+[node name="CollectionDirDialog" type="FileDialog" parent="."]
+title = "Open a Directory"
+ok_button_text = "Select Current Folder"
+file_mode = 2
+access = 2
+use_native_dialog = true
+script = ExtResource("8_5qa0x")

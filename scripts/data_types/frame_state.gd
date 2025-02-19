@@ -8,6 +8,8 @@ var _position_offset: Vector2
 var _size:Vector2
 
 func _init(name:StringName,title:String,attached: Array[StringName],position_offset: Vector2,size:Vector2)->void:
+	_name = name
+	_title = title
 	_attached = attached
 	_position_offset = position_offset
 	_size=size

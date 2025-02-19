@@ -49,6 +49,8 @@ func on_request_complete(result,code,headers,body:PackedByteArray)->void:
 		Globals.conversation.append(chat_message)
 		Globals.emit_signal("updated_messages")
 		if answer.has("documents"):
+			var documents: Array[Dictionary] = []
 			for doc in answer["documents"]:
-				Globals.sources.append(doc)
+				documents.append(doc)
+			Globals.sources = documents
 			Globals.emit_signal("updated_sources")

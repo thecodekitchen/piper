@@ -6,7 +6,6 @@ var load_dialog:FileDialog
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var file_menu_button = $ColorRect/VBoxContainer/MenuBar/HBoxContainer/FileMenuButton
-	var edit_menu_button = $ColorRect/VBoxContainer/MenuBar/HBoxContainer/EditMenuButton
 	file_menu = file_menu_button.get_popup()
 	file_menu.index_pressed.connect(file_menu_router)
 	save_dialog = $SaveDialog

@@ -9,6 +9,7 @@ var pipeline_url:String = "http://localhost:8080"
 var qdrant_url:String = "http://localhost:6333"
 var ollama_url:String = "http://localhost:11434"
 
+var collection_folder:String = "$HOME/collections"
 var qdrant_api_key:String
 var qdrant_collections:Array[String]
 var ollama_models:Array[String]

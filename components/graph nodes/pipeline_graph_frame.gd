@@ -24,14 +24,14 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func handle_delete_request(nodes:Array[StringName]) -> void:
-	if self.selected:
+	if selected:
 		var attached = editor.get_attached_nodes_of_frame(name)
 		if attached.size()>0:
 			for node_name in attached:
 				var node = editor.get_node(NodePath(node_name))
 				node.queue_free()	
-		if nodes.has(StringName(self.name)):
-			self.queue_free()
+		if nodes.has(StringName(name)):
+			queue_free()
 
 func handle_copy() -> void:
 	if self.selected:

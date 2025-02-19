@@ -11,7 +11,7 @@ func _ready() -> void:
 	data["component_name"] = "html"
 	data["receivers"] = ["html.sources"]
 	data["senders"] = ["html.documents"]
-	
+	data["deps"] = ["trafilatura"]
 func conn_request(from:StringName,from_port:int,to:StringName,to_port:int)->void:
 	var origin = graph_editor.get_node(NodePath(from))
 	if origin.data.has("output_types"):

@@ -65,8 +65,9 @@ func connect_signals()->void:
 	graph_editor.paste_nodes_request.connect(handle_paste)
 
 func handle_delete_request(nodes:Array[StringName]) -> void:
-	if nodes.has(StringName(self.name)):
-		self.queue_free()
+	if nodes.has(StringName(name)):
+		break_connections()
+		queue_free()
 
 func handle_copy() -> void:
 	if self.selected:

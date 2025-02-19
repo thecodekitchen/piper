@@ -28,7 +28,6 @@ func _ready() -> void:
 	honor_union_and_any_types()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _node_added(node:Node)->void:
 	if node is PipelineGraphNode:
 		emit_signal("node_added", {"name": node.name})
