@@ -8,7 +8,6 @@ func _ready() -> void:
 	dir_selected.connect(_dir_selected)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _dir_selected(dir:String)->void:
 	if OS.get_name() == "Windows":
 		dir_name = dir.split("\\")[-1]
@@ -23,15 +22,15 @@ func _dir_selected(dir:String)->void:
 		copy_directory(origin,dir)
 		
 	paths = []
-	scan_dir(dir, paths)
+	scan_dir(dir)
 	var container_paths:Array[String] = []
 	for path in paths:
 		container_paths.append(path.replace(Globals.collection_folder,"/collections"))
-	print(container_paths)
 	paths = container_paths
 	start_request()
 	
 func start_request()->void:
+	Globals.emit_signal("uploading_collection")
 	req = HTTPRequest.new()
 	add_child(req)
 	req.request_completed.connect(request_completed)
@@ -39,6 +38,7 @@ func start_request()->void:
 		"paths": paths,
 		"recreate": true
 	})
+	print("sending upload request to ", Globals.pipeline_url+"/upload/"+dir_name)
 	req.request(Globals.pipeline_url+"/upload/"+dir_name,[],HTTPClient.METHOD_POST,body)
 
 func request_completed(result,code,headers,body)->void:
@@ -50,7 +50,7 @@ func request_completed(result,code,headers,body)->void:
 		Globals.qdrant_collections.append(dir_name)
 		Globals.emit_signal("updated_collections")
 		
-func scan_dir(path: String, paths: Array):
+func scan_dir(path: String):
 	var dir_client = DirAccess.open(path)
 	var files = dir_client.get_files()
 	var dirs = dir_client.get_directories()
@@ -65,7 +65,7 @@ func scan_dir(path: String, paths: Array):
 		if file.ends_with(".txt") || file.ends_with(".xlsx") || file.ends_with(".html") || file.ends_with(".pdf") || file.ends_with(".docx") || file.ends_with(".md"):
 			paths.append(path+sep+file)
 	for dir in dirs:
-		scan_dir(path+sep+dir, paths)
+		scan_dir(path+sep+dir)
 
 func copy_directory(source_path: String, destination_path: String) -> Error:
 	# Ensure source directory exists

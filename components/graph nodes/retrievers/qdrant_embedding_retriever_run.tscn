@@ -24,6 +24,9 @@ theme_override_constants/separation = 70
 
 [node name="Label" type="Label" parent="SlotContainer0"]
 layout_mode = 2
+tooltip_text = "A text embedding for the query which the retriever is attempting to find documents related to.
+Type: Embedding"
+mouse_filter = 0
 text = "embedding"
 
 [node name="Label2" type="Label" parent="SlotContainer0"]

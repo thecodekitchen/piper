@@ -21,6 +21,9 @@ theme_override_constants/separation = 30
 
 [node name="Type Map" type="Label" parent="SlotContainer0"]
 layout_mode = 2
+tooltip_text = "Should be connected to a kwarg map that provides a set of required or not required variable names as a Dictionary.
+Typically this comes from a builder node."
+mouse_filter = 0
 text = "Type Map"
 
 [node name="ResetButton" type="Button" parent="SlotContainer0"]
@@ -29,4 +32,6 @@ text = "Reset "
 
 [node name="Value" type="Label" parent="SlotContainer0"]
 layout_mode = 2
+tooltip_text = "Typically, this goes back to the run node of whatever component whose init node provided the kwarg map."
+mouse_filter = 0
 text = "Value"

@@ -10,6 +10,13 @@ func _ready() -> void:
 		]
 	render_conversation()
 	Globals.updated_messages.connect(render_conversation)
+	Globals.thinking.connect(think)
+	
+func think():
+	var indicator = Label.new()
+	indicator.text = "Thinking..."
+	indicator.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	add_child(indicator)
 	
 func render_conversation()->void:
 	for child in get_children():

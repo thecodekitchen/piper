@@ -153,6 +153,8 @@ theme_override_constants/separation = 10
 
 [node name="OllamaURLLabel" type="Label" parent="ColorRect/VBoxContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/OllamaURLRow"]
 layout_mode = 2
+tooltip_text = "Default URL to reach Ollama service"
+mouse_filter = 0
 text = "URL: "
 
 [node name="OllamaURLEdit" type="LineEdit" parent="ColorRect/VBoxContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/OllamaURLRow"]
@@ -168,6 +170,8 @@ script = ExtResource("3_vhml4")
 
 [node name="Label" type="Label" parent="ColorRect/VBoxContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/OllamaModelPuller"]
 layout_mode = 2
+tooltip_text = "Type a model's name to pull it."
+mouse_filter = 0
 text = "Pull A Model: "
 
 [node name="LineEdit" type="LineEdit" parent="ColorRect/VBoxContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/OllamaModelPuller"]
@@ -204,6 +208,8 @@ layout_mode = 2
 
 [node name="TypeLabel" type="Label" parent="ColorRect/VBoxContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/DocStoreTypeRow"]
 layout_mode = 2
+tooltip_text = "What service will you use for document stores?"
+mouse_filter = 0
 text = "Type: "
 
 [node name="TypeOptionButton" type="OptionButton" parent="ColorRect/VBoxContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/DocStoreTypeRow"]
@@ -225,6 +231,8 @@ theme_override_constants/separation = 10
 
 [node name="DocStoreURLLabel" type="Label" parent="ColorRect/VBoxContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/DocStoreURLRow"]
 layout_mode = 2
+tooltip_text = "Default URL to look for document collections"
+mouse_filter = 0
 text = "URL: "
 
 [node name="DocStoreURLEdit" type="LineEdit" parent="ColorRect/VBoxContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/DocStoreURLRow"]
@@ -238,6 +246,8 @@ layout_mode = 2
 
 [node name="DocStoreAPIKeyLabel" type="Label" parent="ColorRect/VBoxContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/DocStoreAPIKeyEdit"]
 layout_mode = 2
+tooltip_text = "API key to authenticate connections to document store service"
+mouse_filter = 0
 text = "API Key: "
 
 [node name="DocStoreAPIKeyEdit" type="LineEdit" parent="ColorRect/VBoxContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/DocStoreAPIKeyEdit"]
@@ -251,6 +261,8 @@ layout_mode = 2
 
 [node name="DocStoreCollectionsLabel" type="Label" parent="ColorRect/VBoxContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/DocStoreCollectionsRow"]
 layout_mode = 2
+tooltip_text = "Local folder used for the collections volume in local Docker deployments"
+mouse_filter = 0
 text = "Collections Folder:"
 
 [node name="DocStoreCollectionFolderButton" type="Button" parent="ColorRect/VBoxContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/DocStoreCollectionsRow"]

@@ -47,6 +47,10 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="SystemTemplateRow"]
 layout_mode = 2
+tooltip_text = "Setup prompt for describing the LLM's desired behavior patterns.
+Example: 
+You are a helpful assistant that answers questions based on provided documents and maintains context from the conversation history. Always ground your responses in the provided documents while considering the conversation context."
+mouse_filter = 0
 text = "System Template: "
 
 [node name="SystemTemplateEditor" type="CodeEdit" parent="SystemTemplateRow"]
@@ -59,6 +63,23 @@ theme_override_constants/separation = 24
 
 [node name="Label" type="Label" parent="UserTemplateRow"]
 layout_mode = 2
+tooltip_text = "This is typically where runtime variables are plugged in to provide the desired context from prior pipeline steps along with the central query.
+Example:
+Conversation history:
+    {% if history %}
+    {% for message in history %}
+        {{ message.role }}: {{ message.content }}
+    {% endfor %}
+    {% else %}
+    No previous conversation history.
+    {% endif %}
+
+    Relevant documents:
+    {% for doc in documents %}
+    {{ doc.content }}
+    {% endfor %}
+   Based on these documents and the conversation history, please answer the following question: {{ question }}"
+mouse_filter = 0
 text = "User Template: "
 
 [node name="UserTemplateEditor" type="CodeEdit" parent="UserTemplateRow"]

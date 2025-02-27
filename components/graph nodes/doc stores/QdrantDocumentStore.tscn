@@ -48,6 +48,8 @@ theme_override_constants/separation = 130
 
 [node name="Label" type="Label" parent="SlotContainer0"]
 layout_mode = 2
+tooltip_text = "Url for Qdrant API"
+mouse_filter = 0
 text = "URL"
 
 [node name="Label2" type="Label" parent="SlotContainer0"]
@@ -60,6 +62,8 @@ theme_override_constants/separation = 40
 
 [node name="Label" type="Label" parent="SlotContainer2"]
 layout_mode = 2
+tooltip_text = "Name of the collection you need to work with"
+mouse_filter = 0
 text = "Index"
 
 [node name="SlotContainer3" type="HBoxContainer" parent="."]
@@ -68,6 +72,10 @@ theme_override_constants/separation = 40
 
 [node name="Label" type="Label" parent="SlotContainer3"]
 layout_mode = 2
+tooltip_text = "Dimensions of embedding matrix for documents in this pipeline.
+This needs to match the dimensions of whatever embedding model was used to embed the documents.
+For nomic-embed-text, the default embedding model for most components, the embedding_dim value is 768."
+mouse_filter = 0
 text = "Embedding Dimensions"
 
 [node name="SlotContainer4" type="HBoxContainer" parent="."]
@@ -76,4 +84,7 @@ theme_override_constants/separation = 40
 
 [node name="Label" type="Label" parent="SlotContainer4"]
 layout_mode = 2
+tooltip_text = "If true, the collection will be overwritten with whatever documents are written to it in the pipeline.
+If false, any documents written in the pipeline will be added to the existing documents."
+mouse_filter = 0
 text = "Recreate Index?"

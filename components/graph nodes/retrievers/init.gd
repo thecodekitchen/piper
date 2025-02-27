@@ -9,9 +9,10 @@ func _ready() -> void:
 	]
 	data["import"] = "haystack_integrations.components.retrievers.qdrant.retriever.QdrantEmbeddingRetriever"
 	data["component_name"] = "retriever"
-	inputs =[Pipeline.DataType.DocStore]
+	inputs =[Pipeline.DataType.DocStore, Pipeline.DataType.Int]
 	slot(0,Pipeline.DataType.DocStore)
-
+	slot(1,Pipeline.DataType.Int)
+	
 func handle_port_change(port:int,val)->void:
 	match port:
 		0:
@@ -24,3 +25,6 @@ func handle_port_change(port:int,val)->void:
 				}
 			else:
 				push_error("invalid doc store connected to ", name)
+		1:
+			if val is int:
+				data["top_k"] = val

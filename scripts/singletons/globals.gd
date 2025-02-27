@@ -63,6 +63,8 @@ signal updated_messages()
 signal updated_conversations()
 signal updated_collections()
 signal updated_sources()
+signal thinking()
+signal uploading_collection()
 
 func _ready()->void:
 	var file = FileAccess.get_file_as_string("user://user_settings.json")
@@ -80,7 +82,28 @@ func _ready()->void:
 			ollama_url = settings["ollama_url"]
 		if settings.has("qdrant_api_key"):
 			qdrant_api_key = settings["qdrant_api_key"]
-		
+		if settings.has("collection_dir"):
+			collection_folder = settings["collection_dir"]
+		if settings.has("selected_collection"):
+			selected_collection = settings["selected_collection"]
+
+func _exit_tree() -> void:
+	var file = FileAccess.open("user://user_settings.json", FileAccess.WRITE)
+	var settings = {
+		"generator_url": generator_url,
+		"pipeline_url": pipeline_url,
+		"qdrant_url": qdrant_url,
+		"ollama_url": ollama_url,
+	}
+	if qdrant_api_key:
+		settings["qdrant_api_key"] = qdrant_api_key
+	if collection_folder:
+		settings["collection_dir"] = collection_folder
+	if selected_collection:
+		settings["selected_collection"] = selected_collection
+	file.store_string(JSON.stringify(settings))
+	file.close()
+
 func refresh_conversations()->void:
 	var dir = DirAccess.open("user://conversations")
 	var conversations = []
@@ -95,7 +118,12 @@ func refresh_conversations()->void:
 	saved_conversations = conversations
 	emit_signal("updated_conversations")
 	
-func save_conversation(path:String)->void:
+func save_conversation(title:String)->void:
+	var dir = DirAccess.open("user://conversations").get_current_dir()
+	var sep = "/"
+	if OS.get_name() == "Windows":
+		sep = "\\"
+	var path = dir + sep + title
 	var json_data = JSON.stringify(conversation)
 	var file = FileAccess.open(path,FileAccess.WRITE)
 	file.store_string(json_data)

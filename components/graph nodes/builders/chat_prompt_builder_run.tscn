@@ -35,6 +35,10 @@ theme_override_constants/separation = 50
 
 [node name="Template" type="Label" parent="SlotContainer0"]
 layout_mode = 2
+tooltip_text = "Use this template connector instead of the init connector if the template is meant to be provided at runtime.
+If this input is connected, it will override any hard-coded template provided above.
+An example would be if you wanted to allow API consumers to provide their own template via an API parameter."
+mouse_filter = 0
 text = "Template"
 
 [node name="Prompt" type="Label" parent="SlotContainer0"]
@@ -47,4 +51,7 @@ theme_override_constants/separation = 50
 
 [node name="Kwargs" type="Label" parent="SlotContainer1"]
 layout_mode = 2
+tooltip_text = "Should be connected to an Args node whose input comes from the init node's kwarg map output.
+This will allow the runtime variable declarations to update properly as edits are made."
+mouse_filter = 0
 text = "Kwargs"

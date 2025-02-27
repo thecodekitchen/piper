@@ -43,10 +43,17 @@ theme_override_constants/separation = 30
 
 [node name="Template" type="Label" parent="SlotContainer0"]
 layout_mode = 2
+tooltip_text = "A Jinja template for compiling data from variables into a pair of setup prompts to prime conversations with the LLM.
+In RAG pipelines, this is where retrieved documents can be injected into 
+a conversation as context through a declared variable."
+mouse_filter = 0
 text = "Template"
 
 [node name="KwargDict" type="Label" parent="SlotContainer0"]
 layout_mode = 2
+tooltip_text = "Plug this into the Args node from the Complex Values menu, then plug its output into the args input of the run node.
+This allows the argument connectors to update as variable inputs are modified."
+mouse_filter = 0
 text = "Kwarg Dict"
 
 [node name="SlotContainer1" type="HBoxContainer" parent="."]
@@ -54,6 +61,9 @@ layout_mode = 2
 
 [node name="Variables" type="Label" parent="SlotContainer1"]
 layout_mode = 2
+tooltip_text = "The set of possible variables available to use, if populated, in the prompt template as references. 
+If they are not populated, they will simply appear in the template as blank values."
+mouse_filter = 0
 text = "Variables"
 
 [node name="SlotContainer2" type="HBoxContainer" parent="."]
@@ -61,4 +71,8 @@ layout_mode = 2
 
 [node name="Required Variables" type="Label" parent="SlotContainer2"]
 layout_mode = 2
+tooltip_text = "The set of required variables that must be provided at runtime in order for pipeline validation to pass
+
+If not all required variables are included in variables, they will simply be added to the args node as required"
+mouse_filter = 0
 text = "Required Variables"

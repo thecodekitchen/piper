@@ -24,6 +24,8 @@ layout_mode = 2
 
 [node name="Label2" type="Label" parent="SlotContainer0/HBoxContainer"]
 layout_mode = 2
+tooltip_text = "variable name for this list"
+mouse_filter = 0
 text = "Key: "
 
 [node name="LineEdit" type="LineEdit" parent="SlotContainer0/HBoxContainer"]

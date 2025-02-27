@@ -54,6 +54,8 @@ text = "output"
 
 [node name="Label" type="Label" parent="SlotContainer0"]
 layout_mode = 2
+tooltip_text = "The route which the parameter belongs to"
+mouse_filter = 0
 text = "route"
 
 [node name="NameRow" type="HBoxContainer" parent="."]
@@ -61,6 +63,8 @@ layout_mode = 2
 
 [node name="NameLabel" type="Label" parent="NameRow"]
 layout_mode = 2
+tooltip_text = "Parameter name"
+mouse_filter = 0
 text = "Name: "
 
 [node name="NameEdit" type="LineEdit" parent="NameRow"]
@@ -73,6 +77,8 @@ theme_override_constants/separation = 17
 
 [node name="TypeLabel" type="Label" parent="TypeRow"]
 layout_mode = 2
+tooltip_text = "Data type for the parameter"
+mouse_filter = 0
 text = "Type:"
 
 [node name="TypeOptionButton" type="OptionButton" parent="TypeRow"]
@@ -85,6 +91,8 @@ layout_mode = 2
 
 [node name="LocLabel" type="Label" parent="LocPicker"]
 layout_mode = 2
+tooltip_text = "Which part of the request will the parameter be parsed from?"
+mouse_filter = 0
 text = "Location: "
 
 [node name="LocOptionButton" type="OptionButton" parent="LocPicker"]

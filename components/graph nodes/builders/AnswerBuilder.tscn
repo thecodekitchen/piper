@@ -41,10 +41,15 @@ theme_override_constants/separation = 40
 
 [node name="query" type="Label" parent="SlotContainer0"]
 layout_mode = 2
+tooltip_text = "Original question being answered in replies
+Type: str"
+mouse_filter = 0
 text = "query"
 
 [node name="answers" type="Label" parent="SlotContainer0"]
 layout_mode = 2
+tooltip_text = "Answers object compiled from inputs"
+mouse_filter = 0
 text = "answers"
 
 [node name="SlotContainer1" type="HBoxContainer" parent="."]
@@ -52,6 +57,9 @@ layout_mode = 2
 
 [node name="replies" type="Label" parent="SlotContainer1"]
 layout_mode = 2
+tooltip_text = "Replies received, usually from a generator.
+Type: List[ChatMessage]"
+mouse_filter = 0
 text = "replies"
 
 [node name="SlotContainer2" type="HBoxContainer" parent="."]
@@ -59,4 +67,7 @@ layout_mode = 2
 
 [node name="documents" type="Label" parent="SlotContainer2"]
 layout_mode = 2
+tooltip_text = "list of retrieved documents, if any
+Type: List[Document]"
+mouse_filter = 0
 text = "documents"

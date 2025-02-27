@@ -82,6 +82,11 @@ text = "txt"
 
 [node name="Label2" type="Label" parent="SlotContainer0"]
 layout_mode = 2
+tooltip_text = "A list of file paths on the server to files that will be converted into documents.
+In local Docker deployments, this mapping is achieved with a shared volume on the host system which target files are copied to before the request is made.
+When running remotely, this must be handled with upload logic.
+Each output will emit only the files that match its type."
+mouse_filter = 0
 text = "sources"
 
 [node name="SlotContainer1" type="HBoxContainer" parent="."]

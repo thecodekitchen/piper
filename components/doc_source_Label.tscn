@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ciu2k37lpcinn"]
+
+[ext_resource type="Script" path="res://components/doc_source_label.gd" id="1_ahwoj"]
+
+[node name="DocSourceLabel" type="Label"]
+mouse_filter = 1
+clip_text = true
+script = ExtResource("1_ahwoj")

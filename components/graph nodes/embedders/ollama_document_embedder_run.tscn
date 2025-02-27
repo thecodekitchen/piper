@@ -33,10 +33,15 @@ theme_override_constants/separation = 40
 
 [node name="Label" type="Label" parent="SlotContainer0"]
 layout_mode = 2
+tooltip_text = "A list of documents to be embedded
+Type: List[Document]"
+mouse_filter = 0
 text = "documents"
 
 [node name="Label2" type="Label" parent="SlotContainer0"]
 layout_mode = 2
+tooltip_text = "Input documents with embeddings attached"
+mouse_filter = 0
 text = "embedded documents"
 
 [node name="SlotContainer1" type="HBoxContainer" parent="."]
@@ -45,4 +50,6 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="SlotContainer1"]
 layout_mode = 2
+tooltip_text = "Metadata about the documents that was identified by the embedding model"
+mouse_filter = 0
 text = "metadata"

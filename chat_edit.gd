@@ -16,6 +16,7 @@ func send()->void:
 	var query = text
 	Globals.conversation.append(ChatMessage.new("user", query))
 	Globals.emit_signal("updated_messages")
+	Globals.emit_signal("thinking")
 	clear()
 	set_caret_column(0)
 	set_caret_line(0)

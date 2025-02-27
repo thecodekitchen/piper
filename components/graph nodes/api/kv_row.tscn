@@ -12,6 +12,8 @@ theme_override_constants/separation = 23
 
 [node name="KeyLabel" type="Label" parent="KeyEditor"]
 layout_mode = 2
+tooltip_text = "Property name"
+mouse_filter = 0
 text = "key: "
 
 [node name="KeyEdit" type="LineEdit" parent="KeyEditor"]
@@ -23,6 +25,8 @@ layout_mode = 2
 
 [node name="TypeLabel" type="Label" parent="TypePicker"]
 layout_mode = 2
+tooltip_text = "Property data type"
+mouse_filter = 0
 text = "type: "
 
 [node name="TypeOptionButton" type="OptionButton" parent="TypePicker"]
@@ -34,6 +38,8 @@ layout_mode = 2
 
 [node name="CustomLabel" type="Label" parent="CustomCheck"]
 layout_mode = 2
+tooltip_text = "Is this property referencing a custom data type?"
+mouse_filter = 0
 text = "custom?"
 
 [node name="CustomCheckButton" type="CheckButton" parent="CustomCheck"]

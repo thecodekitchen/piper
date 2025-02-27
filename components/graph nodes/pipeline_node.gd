@@ -87,9 +87,13 @@ func handle_copy() -> void:
 		
 func handle_paste() -> void:
 	if copy:
-		var clone = copy.instantiate()
+		var clone = copy.instantiate() as PipelineGraphNode
 		name_copy(clone)
 		graph_editor.add_child(clone)
+		clone.data = data
+		clone.data["connections"] = {}
+		if clone.data.has("api_variables"):
+			clone.data.erase("api_variables")
 		clone.position_offset = copy_offset
 		copy_offset.x += 250
 		
@@ -103,7 +107,8 @@ func conn_request(from:StringName,from_port:int,to:StringName,to_port:int)->void
 				var sender = origin_node.data["senders"][from_port]
 				var receiver = data["receivers"][to_port]
 				if data["connections"].has(receiver):
-					data["connections"][receiver].append(sender)
+					if not sender in data["connections"][receiver]:
+						data["connections"][receiver].append(sender)
 				else:
 					data["connections"][receiver] = [sender]
 				print("new connection: ", data["connections"])

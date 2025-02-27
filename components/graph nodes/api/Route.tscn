@@ -44,7 +44,9 @@ text = "output"
 
 [node name="RouteLabel" type="Label" parent="SlotContainer0"]
 layout_mode = 2
-text = "route"
+tooltip_text = "Connect the response node for the route here"
+mouse_filter = 0
+text = "response"
 
 [node name="MethodPicker" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -52,6 +54,8 @@ theme_override_constants/separation = 4
 
 [node name="MethodLabel" type="Label" parent="MethodPicker"]
 layout_mode = 2
+tooltip_text = "HTTP method for the route"
+mouse_filter = 0
 text = "Method: "
 
 [node name="MethodOptionButton" type="OptionButton" parent="MethodPicker"]
@@ -68,6 +72,8 @@ theme_override_constants/separation = 18
 
 [node name="NameLabel" type="Label" parent="NameRow"]
 layout_mode = 2
+tooltip_text = "navigable name of the route in urls"
+mouse_filter = 0
 text = "Name: "
 
 [node name="NameEdit" type="LineEdit" parent="NameRow"]

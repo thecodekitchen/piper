@@ -31,6 +31,9 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="SlotContainer0"]
 layout_mode = 2
+tooltip_text = "Model to use for embedding.
+If not specified, it will default to nomic-embed-text and will fail if nomic-embed-text has not been pulled."
+mouse_filter = 0
 text = "model"
 
 [node name="SlotContainer1" type="HBoxContainer" parent="."]
@@ -38,4 +41,6 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="SlotContainer1"]
 layout_mode = 2
+tooltip_text = "URL for your Ollama instance"
+mouse_filter = 0
 text = "host"

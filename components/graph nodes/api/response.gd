@@ -18,16 +18,17 @@ func _ready() -> void:
 	reset_button.pressed.connect(on_reset)
 	
 func conn_request(from:StringName,from_port:int,to:StringName,to_port:int)->void:
-	if from == name:
-		super.conn_request(from,from_port,to,to_port)
-		return
-	var origin = graph_editor.get_node(NodePath(from)) as PipelineGraphNode
-	var origin_type = origin.get_output_port_type(from_port)
-	slot(0,origin_type,Pipeline.DataType.APIResponse)
-	data["source_type"] = {
-		"name": Pipeline.DataType.keys()[origin_type],
-		"enum": origin_type
-	}
+	#if from == name:
+		#super.conn_request(from,from_port,to,to_port)
+		#return
+	if to == name:
+		var origin = graph_editor.get_node(NodePath(from)) as PipelineGraphNode
+		var origin_type = origin.get_output_port_type(from_port)
+		slot(0,origin_type,Pipeline.DataType.APIResponse)
+		data["source_type"] = {
+			"name": Pipeline.DataType.keys()[origin_type],
+			"enum": origin_type
+		}
 	super.conn_request(from,from_port,to,to_port)
 
 func on_reset()->void:

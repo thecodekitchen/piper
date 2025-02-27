@@ -21,6 +21,8 @@ theme_override_constants/separation = 50
 
 [node name="Label" type="Label" parent="SlotContainer0"]
 layout_mode = 2
+tooltip_text = "List of documents to convert"
+mouse_filter = 0
 text = "sources"
 
 [node name="Label2" type="Label" parent="SlotContainer0"]

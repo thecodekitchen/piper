@@ -24,8 +24,12 @@ theme_override_constants/separation = 50
 
 [node name="Label" type="Label" parent="SlotContainer0"]
 layout_mode = 2
+tooltip_text = "A list of documents to write"
+mouse_filter = 0
 text = "documents"
 
 [node name="Label2" type="Label" parent="SlotContainer0"]
 layout_mode = 2
+tooltip_text = "Number of documents written"
+mouse_filter = 0
 text = "count"
